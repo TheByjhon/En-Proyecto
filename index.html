@@ -8,13 +8,13 @@
     <script src="https://unpkg.com/lucide@latest"></script>
 
     <style>
-        /* Definición de variables y paleta de colores */
+        /* Define missing custom variables & theme configs */
         :root {
             --neon-purple: #a855f7;
             --neon-cyan: #06b6d4;
         }
 
-        /* Estilo Glassmorphism (Efecto esmerilado) */
+        /* Glassmorphism utility */
         .glass {
             background: rgba(255, 255, 255, 0.03);
             backdrop-filter: blur(12px);
@@ -22,7 +22,7 @@
             border: 1px solid rgba(255, 255, 255, 0.08);
         }
 
-        /* Estilos para el Cursor Personalizado */
+        /* Custom Cursor Styles */
         .cursor-dot, .cursor-outline {
             position: fixed;
             top: 0;
@@ -30,7 +30,7 @@
             transform: translate(-50%, -50%);
             border-radius: 50%;
             z-index: 9999;
-            pointer-events: none; /* CRUCIAL: Permite hacer clic a través del elemento */
+            pointer-events: none; /* CRITICAL: Prevents blocking clicks */
             transition: width 0.3s, height 0.3s, background-color 0.3s;
         }
         .cursor-dot {
@@ -43,7 +43,7 @@
             height: 30px;
             border: 1px solid var(--neon-purple);
         }
-        /* Efecto al pasar por encima de elementos interactivos */
+        /* Hover effect classes used in JS */
         .cursor-outline.cursor-hover {
             width: 50px;
             height: 50px;
@@ -51,7 +51,7 @@
             border-color: transparent;
         }
 
-        /* Animación fluida de la imagen principal */
+        /* Smooth image animations & styling */
         .morph-image {
             border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
             animation: morph 8s ease-in-out infinite;
@@ -196,15 +196,15 @@
     </footer>
 
     <script>
-        // Inicializar iconos de Lucide
+        // Initialize Lucide Icons
         lucide.createIcons();
 
-        // Lógica del Cursor Personalizado
+        // Custom Cursor Logic
         const dot = document.querySelector('.cursor-dot');
         const outline = document.querySelector('.cursor-outline');
 
         window.addEventListener('mousemove', (e) => {
-            // Centrar los elementos restando la mitad de sus tamaños base
+            // center elements on cursor position
             dot.style.transform = `translate(${e.clientX - 4}px, ${e.clientY - 4}px)`;
             
             outline.animate(
@@ -218,7 +218,7 @@
             el.addEventListener('mouseleave', () => outline.classList.remove('cursor-hover'));
         });
 
-        // Efecto Parallax Suave
+        // Parallax Effect
         window.addEventListener('scroll', () => {
             const y = window.scrollY;
             const isMobile = window.innerWidth < 768;
@@ -227,7 +227,7 @@
             document.querySelector('.image-container').style.transform = `translateY(${y * -0.05 * m}px)`;
         });
 
-        // Lógica Avanzada del Reproductor de Audio
+        // Audio Player Logic
         const audio = document.getElementById('featured-audio');
         const progress = document.getElementById('main-progress');
         const timeText = document.getElementById('current-time');
@@ -247,10 +247,10 @@
                 audio.pause();
                 playIcon.setAttribute('data-lucide', 'play');
             }
-            lucide.createIcons(); // Refrescar iconos renderizados
+            lucide.createIcons(); // Refresh icons
         }
 
-        // Leer la duración real del archivo una vez cargados sus metadatos
+        // Dynamically get audio track length on metadata load
         audio.addEventListener('loadedmetadata', () => {
             timeText.innerText = `0:00 / ${formatTime(audio.duration)}`;
         });

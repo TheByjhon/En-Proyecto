@@ -1,77 +1,65 @@
+<div id="custom-cursor-dot"></div>
+<div id="custom-cursor-ring"></div>
+
+<nav class="navbar" id="main-nav">
+    <div class="logo-main">EL BYJHON</div>
+    <div class="logo-capsule">Producto musical</div>
+</nav>
+
+<section class="mega-stage">
+    <div class="bg-kinetic-text slide-left">DIGITAL RESIDENCE QUANTUM AUDIO LAB PRODUCT</div>
+    <div class="stage-content">
+        <h1 class="reveal-text">Evolución Sonora Absoluta</h1>
+        <button class="btn-action">Escuchar Demos</button>
+    </div>
+</section>
+
+<section class="mega-stage" style="background: #050505;">
+    <div class="bg-kinetic-text slide-right">LAB CATÁLOGO EXPERIMENTAL BEATS STREAMING</div>
+    <div class="stage-content">
+        <div class="audio-lab-container">
+            <div class="telemetry-status">
+                <div class="pulse-dot"></div>
+                <span>Streaming / Audio Lab V2</span>
+            </div>
+            
+            <div class="spectrometer">
+                <div class="bar"></div><div class="bar"></div><div class="bar"></div><div class="bar"></div>
+                <div class="bar"></div><div class="bar"></div><div class="bar"></div><div class="bar"></div>
+                <div class="bar"></div><div class="bar"></div><div class="bar"></div><div class="bar"></div>
+            </div>
+
+            <ul class="track-list">
+                <li class="track-item"><span>01. Hyper-Genesis</span> <span>Indie / Exp</span></li>
+                <li class="track-item"><span>02. Cyber Luxury</span> <span>Indie / Exp</span></li>
+                <li class="track-item"><span>03. Quantum Fluid</span> <span>Indie / Exp</span></li>
+            </ul>
+        </div>
+    </div>
+</section>
+
 <script>
-    // Inicializar iconos de Lucide
-    lucide.createIcons();
+    // Lógica del Cursor de Inercia
+    const dot = document.getElementById('custom-cursor-dot');
+    const ring = document.getElementById('custom-cursor-ring');
 
-    // Lógica del Cursor Personalizado
-    const dot = document.querySelector('.cursor-dot');
-    const outline = document.querySelector('.cursor-outline');
-
-    window.addEventListener('mousemove', (e) => {
-        dot.style.transform = `translate(${e.clientX - 4}px, ${e.clientY - 4}px)`;
+    document.addEventListener('mousemove', (e) => {
+        // El punto central sigue instantáneamente
+        dot.style.left = e.clientX + 'px';
+        dot.style.top = e.clientY + 'px';
         
-        outline.animate(
-            { transform: `translate(${e.clientX - 15}px, ${e.clientY - 15}px)` }, 
-            { duration: 250, fill: "forwards" }
-        );
+        // El anillo exterior tiene un retraso controlado por el CSS Transition (500ms)
+        ring.style.left = e.clientX + 'px';
+        ring.style.top = e.clientY + 'px';
     });
 
-    document.querySelectorAll('a, button, .gallery-item').forEach(el => {
-        el.addEventListener('mouseenter', () => outline.classList.add('cursor-hover'));
-        el.addEventListener('mouseleave', () => outline.classList.remove('cursor-hover'));
-    });
-
-    // Efecto Parallax Suave
+    // Lógica de la Navbar Dinámica
+    const nav = document.getElementById('main-nav');
     window.addEventListener('scroll', () => {
-        const y = window.scrollY;
-        const isMobile = window.innerWidth < 768;
-        const m = isMobile ? 0 : 1;
-        document.querySelector('.vanguard-title').style.transform = `translateY(${y * 0.15 * m}px)`;
-        document.querySelector('.image-container').style.transform = `translateY(${y * -0.05 * m}px)`;
-    });
-
-    // Lógica del Reproductor de Audio (Corregida)
-    const audio = document.getElementById('featured-audio');
-    const progress = document.getElementById('main-progress');
-    const timeText = document.getElementById('current-time');
-    const playButton = document.querySelector('[onclick="toggleMainPlay()"]');
-
-    // Forzar dos dígitos en minutos y segundos
-    function formatTime(secs) {
-        let minutes = Math.floor(secs / 60);
-        let seconds = Math.floor(secs % 60);
-        return `${minutes < 10 ? '0' : ''}${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
-    }
-
-    function toggleMainPlay() {
-        if (audio.paused) {
-            audio.play();
-            // Reemplazamos el contenedor del icono para que Lucide lo redibuje correctamente
-            playButton.innerHTML = `<i data-lucide="pause" id="play-icon"></i>`;
+        if (window.scrollY > 50) {
+            nav.classList.add('scrolled');
         } else {
-            audio.pause();
-            playButton.innerHTML = `<i data-lucide="play" id="play-icon"></i>`;
+            nav.classList.remove('scrolled');
         }
-        lucide.createIcons(); // Refrescar iconos renderizados
-    }
-
-    // Leer la duración real del archivo una vez cargados sus metadatos
-    audio.addEventListener('loadedmetadata', () => {
-        timeText.innerText = `00:00 / ${formatTime(audio.duration)}`;
-    });
-
-    audio.addEventListener('timeupdate', () => {
-        if (audio.duration) {
-            const pct = (audio.currentTime / audio.duration) * 100;
-            progress.style.width = pct + '%';
-            timeText.innerText = `${formatTime(audio.currentTime)} / ${formatTime(audio.duration)}`;
-        }
-    });
-
-    // Resetear el reproductor automáticamente al finalizar el audio
-    audio.addEventListener('ended', () => {
-        progress.style.width = '0%';
-        playButton.innerHTML = `<i data-lucide="play" id="play-icon"></i>`;
-        lucide.createIcons();
-        timeText.innerText = `00:00 / ${formatTime(audio.duration)}`;
     });
 </script>

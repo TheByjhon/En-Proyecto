@@ -1,294 +1,426 @@
 <!DOCTYPE html>
-<html lang="es" class="scroll-smooth">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>R&ndie - The New Era of Sound</title>
     
-    <!-- === SEO BÁSICO === -->
-    <title>THE BYJHON | Music Production - R&-ndie Fusión</title>
-    <meta name="description" content="The Byjhon & Music Production - Explorando la nueva R&-ndie Fusión. Beats exclusivos, diseño sonoro vanguardista y servicios de producción profesional.">
-    <meta name="keywords" content="Beats, R&-ndie fusión, Music Production, The Byjhon, Techno, Indie, Leasing Beats, Mezcla y Masterización">
-    <meta name="author" content="The Byjhon">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://unpkg.com/lucide@latest"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Syncopate:wght@400;700&family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <!-- Librerías de Prestigio: Fuentes de Moda y Swiper Vertical -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Montserrat:wght@200;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- ==========================================
+         ESTILOS DE ALTA COSTURA (CSS)
+         ========================================== -->
     <style>
-        :root {
-            --neon-purple: #7000ff;
-            --neon-cyan: #0ff;
-            --seafoam-ivory: #94fbff;
-            --bg-dark: #050505;
-        }
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: var(--bg-dark);
-            color: #ffffff;
+        /* Reset y Atmósfera Profunda */
+        html, body {
+            position: relative;
+            height: 100%;
             margin: 0;
-            overflow-x: hidden;
-            cursor: none !important;
+            padding: 0;
+            font-family: 'Montserrat', sans-serif;
+            background-color: #020204;
+            color: #f5f5f0; /* Verde Marfil Suave */
+            overflow: hidden;
         }
-        /* --- CURSOR VIDEOJUEGO (LERP CON INERCIA) --- */
-        .cursor-dot { width: 6px; height: 6px; background: var(--seafoam-ivory); position: fixed; pointer-events: none; z-index: 10000; border-radius: 50%; transform: translate(-50%, -50%); }
-        .cursor-circle { width: 35px; height: 35px; border: 1px solid var(--neon-purple); position: fixed; pointer-events: none; z-index: 9999; border-radius: 50%; transform: translate(-50%, -50%); }
-        /* --- DOBLE CÁPSULA TÉCNICA --- */
-        .outer-capsule { padding: 1.5px; background: linear-gradient(90deg, var(--neon-purple), var(--neon-cyan), var(--seafoam-ivory)); border-radius: 100px; display: inline-block; }
-        .inner-capsule { background: var(--bg-dark); padding: 5px 22px; border-radius: 100px; font-family: 'Syncopate', sans-serif; font-size: 8px; letter-spacing: 0.2em; color: #fff; display: flex; align-items: center; }
-        /* --- ESTÉTICA DE BRANDING (SHINE & KINETIC) --- */
-        .byjhon-shine {
-            background: linear-gradient(90deg, #fff, var(--neon-purple), var(--seafoam-ivory), #fff);
-            background-size: 200% auto;
+        /* Tipografías Artísticas */
+        h1, h2, .brand-title {
+            font-family: 'Cinzel', serif;
+            letter-spacing: 6px;
+        }
+        .poesia-text {
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+        }
+        /* Carrusel Vertical a Pantalla Completa */
+        .swiper {
+            width: 100vw;
+            height: 100vh;
+        }
+        .swiper-slide {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-end; /* Empuja el texto abajo para lucir la foto */
+            position: relative;
+            background-color: #020204;
+            background-repeat: no-repeat;
+            background-position: center center;
+            background-size: contain; /* Abre la pantalla de arriba a abajo con fotos enteras */
+            height: 100vh;
+            width: 100vw;
+        }
+        /* Degradado de pasarela para proteger la lectura */
+        .swiper-slide::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(0deg, rgba(2,2,4,0.95) 0%, rgba(2,2,4,0.2) 50%, rgba(2,2,4,0.6) 100%);
+            z-index: 1;
+        }
+        /* Contenedor de Texto Flotante en Zona Baja */
+        .manifiesto-artistico {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            max-width: 900px;
+            width: 85%;
+            margin-bottom: 80px; /* Mega espacio inferior sobrio */
+            padding: 30px;
+            background: rgba(255, 255, 255, 0.01);
+            backdrop-filter: blur(5px);
+            -webkit-backdrop-filter: blur(5px);
+            border-bottom: 1px solid rgba(168, 85, 247, 0.2); /* Línea liliácea sutil */
+            animation: eleganceFloat 5s ease-in-out infinite;
+        }
+        @keyframes eleganceFloat {
+            0% { transform: translateY(0px); opacity: 0.95; }
+            50% { transform: translateY(-6px); opacity: 1; }
+            100% { transform: translateY(0px); opacity: 0.95; }
+        }
+        /* Títulos y Concepto R&ndie */
+        .manifiesto-artistico h1 {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            background: linear-gradient(45deg, #f5f5f0, #c084fc, #2dd4bf); /* Marfil, Liliáceo y Turquesa */
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            animation: shine 6s linear infinite;
+            text-shadow: 0 0 30px rgba(192, 132, 252, 0.1);
         }
-        @keyframes shine { to { background-position: 200% center; } }
-        .animate-kinetic { animation: kinetic 8s ease-in-out infinite; display: inline-block; }
-        @keyframes kinetic { 0%, 100% { transform: translateY(0) rotate(0deg); } 50% { transform: translateY(-15px) rotate(0.5deg); } }
-        /* --- IMÁGENES EN MOVIMIENTO --- */
-        @keyframes slowDrift { 0% { transform: scale(1.1); } 50% { transform: scale(1.2) translate(-5px, -5px); } 100% { transform: scale(1.1); } }
-        .moving-img { animation: slowDrift 15s ease-in-out infinite; width: 100%; height: 100%; object-fit: cover; }
-        /* --- TIPOGRAFÍA DE FONDO --- */
-        .bg-text-container { position: absolute; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 0; overflow: hidden; opacity: 0.04; }
-        .bg-text-move { font-family: 'Syncopate', sans-serif; font-size: 20vw; white-space: nowrap; position: absolute; text-transform: uppercase; font-style: italic; }
-        .slide-left { animation: slideLeft 90s linear infinite; top: 10%; color: var(--neon-purple); }
-        .slide-right { animation: slideRight 80s linear infinite; bottom: 10%; color: var(--seafoam-ivory); }
-        @keyframes slideLeft { from { transform: translateX(100%); } to { transform: translateX(-100%); } }
-        @keyframes slideRight { from { transform: translateX(-100%); } to { transform: translateX(100%); } }
-        .mega-page { min-height: 100vh; padding: 100px 0; display: flex; flex-direction: column; justify-content: center; position: relative; z-index: 10; }
-        .glass { background: rgba(255, 255, 255, 0.01); backdrop-filter: blur(40px); border: 1px solid rgba(255, 255, 255, 0.03); }
-        .track-row { border-bottom: 1px solid rgba(112, 0, 255, 0.2); transition: all 0.4s ease; }
-        .track-row:hover { background: rgba(112, 0, 255, 0.08); border-left: 2px solid var(--seafoam-ivory); }
-        /* ASISTENTE IA MODERNO */
-        .ai-btn { background: linear-gradient(135deg, var(--neon-purple), var(--neon-cyan)); animation: ai-pulse 3s infinite ease-in-out; box-shadow: 0 0 20px rgba(112, 0, 255, 0.4); }
-        @keyframes ai-pulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.1); box-shadow: 0 0 30px var(--seafoam-ivory); } }
-        body::before { content: ""; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-image: url("https://grainy-gradients.vercel.app/noise.svg"); opacity: 0.04; pointer-events: none; z-index: 10000; }
-        @media (max-width: 768px) { * { cursor: auto !important; } .cursor-dot, .cursor-circle, .bg-text-container { display: none; } }
+        .manifiesto-artistico p {
+            font-size: 1.3rem;
+            color: #d1d5db;
+            font-weight: 300;
+            line-height: 1.8;
+        }
+        /* Botón de Interacción Minimalista */
+        .boton-alta-gama {
+            display: inline-block;
+            margin-top: 15px;
+            padding: 12px 35px;
+            background: transparent;
+            color: #f5f5f0;
+            border: 1px solid #2dd4bf; /* Borde Turquesa Neón */
+            text-decoration: none;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            border-radius: 0px; /* Esquinas rectas para mayor elegancia */
+            transition: all 0.4s ease;
+        }
+        .boton-alta-gama:hover {
+            background: #c084fc;
+            border-color: #c084fc;
+            color: #020204;
+            box-shadow: 0 0 25px rgba(192, 132, 252, 0.6);
+        }
+        /* Estructura Especial para la Diapositiva Final (Contacto y Redes) */
+        .slide-final {
+            justify-content: center !important;
+            padding: 40px 20px;
+            box-sizing: border-box;
+            overflow-y: auto;
+        }
+        .grid-final {
+            position: relative;
+            z-index: 2;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 40px;
+            width: 100%;
+            max-width: 600px;
+        }
+        /* Formulario Minimalista */
+        .formulario-lujo {
+            width: 100%;
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(45, 212, 191, 0.2); /* Borde turquesa sutil */
+            padding: 35px;
+            box-sizing: border-box;
+        }
+        .formulario-lujo input, .formulario-lujo textarea {
+            width: 100%;
+            background: transparent;
+            border: none;
+            border-bottom: 1px solid rgba(245, 245, 240, 0.3);
+            margin-bottom: 25px;
+            padding: 10px 0;
+            color: #f5f5f0;
+            font-family: 'Montserrat', sans-serif;
+            outline: none;
+            transition: border-color 0.3s;
+        }
+        .formulario-lujo input:focus, .formulario-lujo textarea:focus {
+            border-bottom-color: #c084fc; /* Cambio a Liliáceo al escribir */
+        }
+        /* Redes Sociales Glamourosas */
+        .redes-container {
+            display: flex;
+            gap: 30px;
+        }
+        .redes-container a {
+            color: #f5f5f0;
+            font-size: 1.8rem;
+            transition: color 0.3s, transform 0.3s;
+        }
+        .redes-container a:hover {
+            color: #2dd4bf;
+            transform: translateY(-5px);
+        }
+        /* Indicadores de dirección vertical refinados */
+        .swiper-button-next, .swiper-button-prev {
+            color: #f5f5f0 !important;
+            opacity: 0.2;
+            left: 50% !important;
+            transform: translateX(-50%);
+        }
+        .swiper-button-prev { top: 30px !important; transform: translateX(-50%) rotate(90deg); }
+        .swiper-button-next { top: auto !important; bottom: 20px !important; transform: translateX(-50%) rotate(90deg); }
+        /* ==========================================
+           WIDGET INTELIGENTE DE IA
+           ========================================== */
+        .ia-widget-boton {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background: transparent;
+            border: 1px solid #c084fc;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            color: #c084fc;
+            cursor: pointer;
+            z-index: 9999;
+            transition: all 0.3s ease;
+        }
+        .ia-widget-boton:hover {
+            background: #c084fc;
+            color: #020204;
+            box-shadow: 0 0 20px rgba(192, 132, 252, 0.4);
+        }
+        .ia-chat-ventana {
+            position: fixed;
+            bottom: 95px;
+            right: 30px;
+            width: 330px;
+            height: 430px;
+            background: rgba(2, 2, 4, 0.98);
+            border: 1px solid rgba(45, 212, 191, 0.3);
+            display: none;
+            flex-direction: column;
+            z-index: 9998;
+        }
+        .ia-chat-header {
+            padding: 15px;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .ia-chat-mensajes { flex: 1; padding: 15px; overflow-y: auto; display: flex; flex-direction: column; gap: 12px; }
+        .mensaje { padding: 10px 14px; font-size: 13px; max-width: 80%; line-height: 1.5; }
+        .msg-ia { background: rgba(255,255,255,0.03); color: #f5f5f0; align-self: flex-start; border-left: 2px solid #c084fc; }
+        .msg-usuario { background: rgba(45, 212, 191, 0.1); color: #2dd4bf; align-self: flex-end; border-right: 2px solid #2dd4bf; }
+        .ia-chat-input-area { padding: 12px; border-top: 1px solid rgba(255,255,255,0.05); display: flex; gap: 8px; }
+        .ia-chat-input-area input { flex: 1; background: transparent; border: 1px solid rgba(255,255,255,0.1); padding: 8px 12px; color: white; font-size: 12px; outline: none; }
+        .ia-chat-input-area button { background: transparent; border: 1px solid #2dd4bf; color: #2dd4bf; padding: 0 15px; cursor: pointer; }
     </style>
 </head>
 <body>
-    <div class="cursor-dot" id="dot"></div>
-    <div class="cursor-circle" id="circle"></div>
-    <!-- NAVEGACIÓN -->
-    <nav class="fixed w-full z-[70] py-6 px-12 flex justify-between items-center bg-transparent backdrop-blur-sm" id="nav">
-        <div class="font-title text-xl tracking-tighter uppercase font-bold byjhon-shine">THE BYJHON</div>
-        <div class="hidden md:flex gap-12 text-[9px] uppercase tracking-[0.5em] font-semibold text-gray-400">
-            <a href="#hero" class="hover:text-white transition">Intro</a>
-            <a href="#audio-lab" class="hover:text-white transition">Lab</a>
-            <a href="#visuals" class="hover:text-white transition">Visuals</a>
-            <a href="#catalog" class="hover:text-white transition">Store</a>
-            <a href="#contact" class="hover:text-white transition">Connect</a>
-        </div>
-        <div class="outer-capsule">
-            <div class="inner-capsule uppercase byjhon-shine">MUSIC PRODUCTION</div>
-        </div>
-    </nav>
-    <!-- ASISTENTE IA -->
-    <div id="ai-assistant" style="position: fixed; bottom: 30px; right: 30px; z-index: 1000;">
-        <div id="chat-win" class="glass rounded-[40px] p-6 border border-[--seafoam-ivory]/20 w-[300px] h-[400px] mb-6 hidden flex-col">
-            <div class="flex items-center gap-3 mb-4 border-b border-white/5 pb-3">
-                <div class="w-2 h-2 bg-[--seafoam-ivory] rounded-full animate-pulse"></div>
-                <span class="text-[9px] font-title tracking-widest uppercase">Byjhon AI Assistant</span>
+    <!-- CARRUSEL VERTICAL DE ALTA DEFINICIÓN (12 IMÁGENES) -->
+    <div class="swiper mySwiper">
+        <div class="swiper-wrapper">
+            
+            <!-- DIAPOSITIVA 1: EL MANIFIESTO -->
+            <div class="swiper-slide" style="background-image: url('https://images.unsplash.com/photo-1514525253161-7a46d19cd819?q=80&w=1920');">
+                <div class="manifiesto-artistico">
+                    <h1>Nace el R&ndie</h1>
+                    <p class="poesia-text">"La colisión perfecta entre la crudeza pura del Drill y la poesía etérea del Indie Pop."</p>
+                    <a href="#next" class="boton-alta-gama" onclick="swiper.slideNext(); return false;">Sumergirse</a>
+                </div>
             </div>
-            <div id="ai-messages" class="flex-1 overflow-y-auto text-[10px] space-y-4 mb-4 opacity-70">
-                <p>Analizando frecuencias... ¿Listo para la Fusión R&ndei?</p>
+            <!-- DIAPOSITIVA 2: LAS MELODÍAS -->
+            <div class="swiper-slide" style="background-image: url('https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?q=80&w=1920');">
+                <div class="manifiesto-artistico">
+                    <h1>Sinfonía R&ndie</h1>
+                    <p class="poesia-text">"Armonías de Soul arrastradas por ritmos urbanos que acarician el abismo."</p>
+                </div>
             </div>
-            <input type="text" placeholder="Escribe..." class="bg-white/5 border border-white/10 rounded-full px-4 py-2 text-[10px] outline-none focus:border-[--seafoam-ivory]">
-        </div>
-        <button onclick="document.getElementById('chat-win').classList.toggle('hidden')" class="w-16 h-16 ai-btn rounded-full flex items-center justify-center text-white">
-            <i data-lucide="sparkles"></i>
-        </button>
-    </div>
-    <!-- PÁGINA 1: HERO -->
-    <section id="hero" class="mega-page px-6 text-center overflow-hidden">
-        <div class="bg-text-container">
-            <div class="bg-text-move slide-left">THE BYJHON PRODUCTION</div>
-        </div>
-        <div class="container mx-auto relative z-10">
-            <span class="text-[--seafoam-ivory] tracking-[1.2em] uppercase text-[10px] mb-8 block">Future Sensations Vanguardia</span>
-            <h1 class="font-title text-6xl md:text-[150px] leading-none mb-10 italic select-none">
-                <span class="animate-kinetic byjhon-shine">THE</span> <br> 
-                <span class="animate-kinetic text-transparent" style="-webkit-text-stroke: 1px #7000ff; animation-delay: 0.5s;">BYJHON</span>
-            </h1>
-            <p class="text-gray-400 tracking-[0.4em] uppercase text-[10px] max-w-2xl mx-auto mb-12">
-                Producciones exclusivas • Mezcla y masterización profesional <br> 
-                <span class="text-white">The crossover signature experience</span>
-            </p>
-            <div class="flex justify-center gap-10">
-                <a href="#audio-lab" class="text-[10px] uppercase tracking-[0.5em] font-bold border-b border-white/10 pb-2 hover:border-[--seafoam-ivory] transition-all">Escuchar Demos</a>
-                <a href="#catalog" class="text-[10px] uppercase tracking-[0.5em] font-bold border-b border-[--seafoam-ivory] pb-2 hover:bg-[--seafoam-ivory] hover:text-black transition-all">Explorar Catálogo</a>
+            <!-- DIAPOSITIVA 3: PROFUNDIDAD SENSORIAL -->
+            <div class="swiper-slide" style="background-image: url('https://images.unsplash.com/photo-1470225620780-dba8ba36b745?q=80&w=1920');">
+                <div class="manifiesto-artistico">
+                    <h1>Elegancia Callejera</h1>
+                    <p class="poesia-text">"Pinceladas de seda negra sobre frecuencias subterráneas."</p>
+                </div>
             </div>
-        </div>
-    </section>
-    <!-- PÁGINA 2: AUDIO LAB (10 TEMAS) -->
-    <section id="audio-lab" class="mega-page px-6 bg-[#030303]">
-        <div class="container mx-auto max-w-6xl relative z-10">
-            <div class="grid lg:grid-cols-2 gap-20 items-center">
-                <div class="glass rounded-[60px] p-12 h-[550px] flex flex-col justify-between relative overflow-hidden">
-                    <canvas id="visualizer" class="absolute bottom-0 left-0 w-full h-40 opacity-30 pointer-events-none"></canvas>
-                    <div class="relative z-10">
-                        <div class="flex justify-between items-start">
-                            <div>
-                                <h3 id="curr-title" class="font-title text-5xl italic leading-tight animate-kinetic">Cargando...</h3>
-                                <p id="curr-desc" class="text-gray-500 text-[10px] uppercase tracking-[0.3em] mt-6 leading-loose">Diseño sonoro de estética moderna.</p>
-                            </div>
-                            <div class="font-title text-2xl text-[--seafoam-ivory]" id="curr-price">$00</div>
+            <!-- DIAPOSITIVA 4: IDENTIDAD URBANA -->
+            <div class="swiper-slide" style="background-image: url('https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?q=80&w=1920');">
+                <div class="manifiesto-artistico">
+                    <h1>Esencia R&ndie</h1>
+                    <p class="poesia-text">"Cuando el latido del Drill se rinde ante la vulnerabilidad del R&B acústico."</p>
+                </div>
+            </div>
+            <!-- DIAPOSITIVA 5: PUREZA CRUDA -->
+            <div class="swiper-slide" style="background-image: url('https://images.unsplash.com/photo-1516280440614-37939bbacd6a?q=80&w=1920');">
+                <div class="manifiesto-artistico">
+                    <h1>Texturas Híbridas</h1>
+                    <p class="poesia-text">"Sonidos aterciopelados flotando sobre bajos que hacen temblar el cemento."</p>
+                </div>
+            </div>
+            <!-- DIAPOSITIVA 6: EL NUEVO CULTO -->
+            <div class="swiper-slide" style="background-image: url('https://images.unsplash.com/photo-1501386761578-eac5c94b800a?q=80&w=1920');">
+                <div class="manifiesto-artistico">
+                    <h1>Vanguardia Estética</h1>
+                    <p class="poesia-text">"La sofisticación no se grita, se susurra sobre una base de Soul contemporáneo."</p>
+                </div>
+            </div>
+            <!-- DIAPOSITIVA 7: DINÁMICA ATMOSFÉRICA -->
+            <div class="swiper-slide" style="background-image: url('https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?q=80&w=1920');">
+                <div class="manifiesto-artistico">
+                    <h1>Luz Liliácea</h1>
+                    <p class="poesia-text">"Destellos de neón que cortan la sobriedad de una noche eterna."</p>
+                </div>
+            </div>
+            <!-- DIAPOSITIVA 8: REVOLUCIÓN SONORA -->
+            <div class="swiper-slide" style="background-image: url('https://images.unsplash.com/photo-1487180142328-054b783fc471?q=80&w=1920');">
+                <div class="manifiesto-artistico">
+                    <h1>Manifiesto R&ndie</h1>
+                    <p class="poesia-text">"No seguimos tendencias. Rompemos las reglas del género para crear un refugio."</p>
+                </div>
+            </div>
+            <!-- DIAPOSITIVA 9: PASARELA DIGITAL -->
+            <div class="swiper-slide" style="background-image: url('https://images.unsplash.com/photo-1465847899084-d164df4dedc6?q=80&w=1920');">
+                <div class="manifiesto-artistico">
+                    <h1>Diseño y Gravedad</h1>
+                    <p class="poesia-text">"El mega espacio que aloja los sentimientos más profundos del artista."</p>
+                </div>
+            </div>
+            <!-- DIAPOSITIVA 10: EL ECO DEL SOUL -->
+            <div class="swiper-slide" style="background-image: url('https://images.unsplash.com/photo-1508700115892-45ecd05ae2ad?q=80&w=1920');">
+                <div class="manifiesto-artistico">
+                    <h1>Frecuencia Turquesa</h1>
+                    <p class="poesia-text">"Donde las voces melancólicas encuentran su ritmo en el asfalto."</p>
+                </div>
+            </div>
+            <!-- DIAPOSITIVA 11: RAÍCES SUTILES -->
+            <div class="swiper-slide" style="background-image: url('https://images.unsplash.com/photo-1510915228340-29c85a43dcfe?q=80&w=1920');">
+                <div class="manifiesto-artistico">
+                    <h1>Identidad Visual</h1>
+                    <p class="poesia-text">"Siluetas perfectas que emergen del vacío marfil."</p>
+                </div>
+            </div>
+            <!-- DIAPOSITIVA 12: EXPERIENCIA FINAL (CONTACTO Y REDES) -->
+            <div class="swiper-slide slide-final" style="background-image: url('https://images.unsplash.com/photo-1453733190148-c44698c26588?q=80&w=1920');">
+                <div class="grid-final">
+                    <div style="text-align: center;">
+                        <h2 style="font-size: 1.8rem; text-transform: uppercase; margin-bottom: 10px;">Forma parte del movimiento</h2>
+                        <p class="poesia-text" style="color: #cbd5e1; font-size: 1.1rem; margin: 0;">Contacto exclusivo & Booking</p>
+                    </div>
+                    <!-- Formulario de Alto Standing -->
+                    <form class="formulario-lujo" onsubmit="event.preventDefault(); alert('Mensaje sintonizado con el R&ndie.');">
+                        <input type="text" placeholder="NOMBRE / FIRMA" required>
+                        <input type="email" placeholder="CORREO ELECTRÓNICO" required>
+                        <textarea placeholder="MENSAJE / PROPUESTA ARTÍSTICA" rows="3" required></textarea>
+                        <div style="text-align: right;">
+                            <button type="submit" class="boton-alta-gama" style="margin: 0; padding: 8px 25px;">Enviar</button>
                         </div>
-                        <div class="flex flex-col items-center gap-12 mt-12">
-                            <div class="flex items-center gap-12">
-                                <button onclick="prevTrack()" class="hover:text-[--neon-purple] transition-all"><i data-lucide="skip-back"></i></button>
-                                <button onclick="togglePlay()" class="w-20 h-20 bg-white text-black rounded-full flex items-center justify-center hover:scale-105 transition-all"><i data-lucide="play" id="play-icon"></i></button>
-                                <button onclick="nextTrack()" class="hover:text-[--neon-purple] transition-all"><i data-lucide="skip-forward"></i></button>
-                            </div>
-                            <div class="w-full h-[1px] bg-white/10 relative"><div id="main-progress" class="h-full bg-[--seafoam-ivory] w-0"></div></div>
-                        </div>
+                    </form>
+                    <!-- Redes Sociales de Lujo -->
+                    <div class="redes-container">
+                        <a href="https://instagram.com" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="https://spotify.com" target="_blank"><i class="fa-brands fa-spotify"></i></a>
+                        <a href="https://youtube.com" target="_blank"><i class="fa-brands fa-youtube"></i></a>
+                        <a href="https://soundcloud.com" target="_blank"><i class="fa-brands fa-soundcloud"></i></a>
                     </div>
                 </div>
-                <div class="flex flex-col">
-                    <h3 class="font-title text-[10px] tracking-[0.5em] uppercase mb-12 opacity-40">Audio Lab / Indie Demos</h3>
-                    <div id="demo-list" class="space-y-0 overflow-y-auto max-h-[450px] pr-4 custom-scrollbar"></div>
-                </div>
             </div>
         </div>
-    </section>
-    <!-- PÁGINA 3: VISUALS (REPRODUCTOR YOUTUBE INTEGRADO - ANTI REDIRECCIÓN) -->
-    <section id="visuals" class="mega-page px-6 overflow-hidden">
-        <div class="container mx-auto max-w-5xl">
-            <div class="text-center mb-16">
-                <div class="outer-capsule mb-6"><div class="inner-capsule uppercase byjhon-shine">Visual Sessions</div></div>
-                <h2 class="font-title text-3xl italic animate-kinetic uppercase">Live <span class="text-[--neon-purple]">Experience</span></h2>
-            </div>
-            <!-- REPRODUCTOR CON SANDBOX PARA EVITAR SALIDA DE LA WEB -->
-            <div class="glass rounded-[50px] p-4 aspect-video border border-white/5 shadow-2xl relative overflow-hidden">
-                <iframe 
-                    id="locked-player"
-                    class="w-full h-full rounded-[40px]" 
-                    src="https://www.youtube-nocookie.com/embed/dQw4w9WgXcQ?rel=0&modestbranding=1&enablejsapi=1&origin=https://thebyjhon.com" 
-                    title="THE BYJHON Visuals" 
-                    frameborder="0" 
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                    sandbox="allow-forms allow-scripts allow-pointer-lock allow-same-origin allow-presentation"
-                    allowfullscreen>
-                </iframe>
-            </div>
-            <div class="flex justify-center gap-4 mt-8">
-                <button onclick="updateLockedVideo('dQw4w9WgXcQ')" class="px-5 py-2 bg-white/5 border border-white/10 rounded-full text-[8px] font-bold uppercase tracking-widest hover:border-[--seafoam-ivory] transition-all">Sess. 01</button>
-                <button onclick="updateLockedVideo('3nxH9-EovG8')" class="px-5 py-2 bg-white/5 border border-white/10 rounded-full text-[8px] font-bold uppercase tracking-widest hover:border-[--seafoam-ivory] transition-all">Sess. 02</button>
+        
+        <!-- Flechas de navegación verticales -->
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
+    </div>
+    <!-- ASISTENTE DE IA DE ALTA GAMA -->
+    <div class="ia-widget-boton" id="botonIA">
+        <i class="fa-solid fa-signature"></i>
+    </div>
+    <div class="ia-chat-ventana" id="ventanaIA">
+        <div class="ia-chat-header">
+            <span style="font-family:'Cinzel'; font-size: 11px; letter-spacing: 2px;">R&ndie Oracle</span>
+            <div id="cerrarIA" style="cursor:pointer; opacity:0.5;"><i class="fa-solid fa-xmark"></i></div>
+        </div>
+        <div class="ia-chat-mensajes" id="contenedorMensajes">
+            <div class="mensaje msg-ia">
+                Has entrado a la dimensión del R&ndie. Dime, ¿qué vibración buscas experimentar hoy en esta fusión de géneros?
             </div>
         </div>
-    </section>
-    <!-- PÁGINA 4: TIENDA BEATS -->
-    <section id="catalog" class="mega-page px-6">
-        <div class="container mx-auto max-w-7xl relative z-10">
-            <div class="flex justify-between items-end mb-20">
-                <h2 class="font-title text-4xl italic animate-kinetic">BEAT <span class="text-[--neon-purple]">STORE</span></h2>
-            </div>
-            <div id="beat-grid" class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-6"></div>
+        <div class="ia-chat-input-area">
+            <input type="text" id="inputUsuario" placeholder="Escribe tus sentimientos..." autocomplete="off">
+            <button id="btnEnviar">Sintonizar</button>
         </div>
-    </section>
-    <!-- PÁGINA 5: CONTACTO Y REDES SOCIALES -->
-    <section id="contact" class="mega-page px-6 bg-[#030303]">
-        <div class="container mx-auto max-w-4xl text-center">
-            <h2 class="font-title text-3xl mb-12 italic animate-kinetic">RESIDENCIA <span class="text-[--seafoam-ivory]">DIGITAL</span></h2>
-            
-            <div class="flex flex-wrap justify-center gap-5 mb-16">
-                <a href="#" class="w-10 h-10 border border-white/10 rounded-full flex items-center justify-center hover:border-[--seafoam-ivory] hover:bg-white/5 transition-all"><i data-lucide="instagram" class="w-4 h-4 opacity-50"></i></a>
-                <a href="#" class="w-10 h-10 border border-white/10 rounded-full flex items-center justify-center hover:border-[--seafoam-ivory] hover:bg-white/5 transition-all"><i data-lucide="youtube" class="w-4 h-4 opacity-50"></i></a>
-                <a href="#" class="w-10 h-10 border border-white/10 rounded-full flex items-center justify-center hover:border-[--seafoam-ivory] hover:bg-white/5 transition-all"><i data-lucide="music" class="w-4 h-4 opacity-50"></i></a>
-                <a href="#" class="w-10 h-10 border border-white/10 rounded-full flex items-center justify-center hover:border-[--seafoam-ivory] hover:bg-white/5 transition-all"><i data-lucide="cloud-lightning" class="w-4 h-4 opacity-50"></i></a>
-                <a href="#" class="w-10 h-10 border border-white/10 rounded-full flex items-center justify-center hover:border-[--seafoam-ivory] hover:bg-white/5 transition-all"><i data-lucide="twitter" class="w-4 h-4 opacity-50"></i></a>
-                <a href="#" class="w-10 h-10 border border-white/10 rounded-full flex items-center justify-center hover:border-[--seafoam-ivory] hover:bg-white/5 transition-all"><i data-lucide="message-square" class="w-4 h-4 opacity-50"></i></a>
-            </div>
-            <form class="glass p-16 rounded-[60px] text-left">
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
-                    <input type="text" placeholder="ID ARTISTA" class="bg-transparent border-b border-white/10 py-4 text-[10px] outline-none focus:border-[--seafoam-ivory]">
-                    <input type="email" placeholder="EMAIL" class="bg-transparent border-b border-white/10 py-4 text-[10px] outline-none focus:border-[--seafoam-ivory]">
-                    <textarea placeholder="PROYECTO" class="md:col-span-2 bg-transparent border-b border-white/10 py-4 text-[10px] outline-none focus:border-[--seafoam-ivory] h-24"></textarea>
-                    <button class="md:col-span-2 py-6 bg-white text-black font-title text-[9px] tracking-[0.5em] rounded-full hover:bg-[--neon-purple] hover:text-white transition-all uppercase">Enviar</button>
-                </div>
-            </form>
-        </div>
-    </section>
+    </div>
+    <!-- MOTORES JAVASCRIPT RECONFIGURADOS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script>
-        lucide.createIcons();
-        // --- ANTI REDIRECCIÓN DE VÍDEO ---
-        function updateLockedVideo(id) {
-            const frame = document.getElementById('locked-player');
-            frame.src = `https://www.youtube-nocookie.com/embed/${id}?rel=0&modestbranding=1&autoplay=1`;
-        }
-        // --- CURSOR VIDEOJUEGO (LERP) ---
-        const dot = document.getElementById('dot');
-        const circle = document.getElementById('circle');
-        let mX = 0, mY = 0, cX = 0, cY = 0;
-        window.addEventListener('mousemove', e => { mX = e.clientX; mY = e.clientY; dot.style.left = mX + 'px'; dot.style.top = mY + 'px'; });
-        function animateCursor() {
-            cX += (mX - cX) * 0.15; cY += (mY - cY) * 0.15;
-            circle.style.left = cX + 'px'; circle.style.top = cY + 'px';
-            requestAnimationFrame(animateCursor);
-        }
-        animateCursor();
-        // --- DATA ---
-        const demoTracks = [
-            { title: "INDIE DREAM", genre: "Experimental", price: "$49", src: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" },
-            { title: "CYBER PULSE", genre: "Phonk Pro", price: "$39", src: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3" },
-            { title: "SILK ROAD", genre: "Chill Indie", price: "$45", src: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-3.mp3" },
-            { title: "VOID TECH", genre: "Techno Indie", price: "$55", src: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-4.mp3" },
-            { title: "LUSH WAVES", genre: "Dream Pop", price: "$40", src: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-5.mp3" },
-            { title: "URBAN MIST", genre: "Indie Trap", price: "$49", src: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-6.mp3" },
-            { title: "NEON GHOST", genre: "Electronic", price: "$35", src: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-7.mp3" },
-            { title: "DELTA ECHO", genre: "Indie Folk", price: "$45", src: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-8.mp3" },
-            { title: "OMEGA LOOP", genre: "Lo-Fi Indie", price: "$30", src: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-9.mp3" },
-            { title: "STATIC SUN", genre: "Ambient Indie", price: "$60", src: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-10.mp3" }
-        ];
-        const catalogTracks = [
-            { title: "R&-NDIE FUSIÓN", price: "$59", genre: "Fusión", cover: "https://images.unsplash.com/photo-1614613535308-eb5fbd3d2c17?w=400" },
-            { title: "STARDUST ECHO", price: "$39", genre: "Techno", cover: "https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?w=400" },
-            { title: "NEON PROTOCOL", price: "$45", genre: "Cyber", cover: "https://images.unsplash.com/photo-1550684848-fac1c5b4e853?w=400" },
-            { title: "IVORY SYSTEM", price: "$55", genre: "Indie", cover: "https://images.unsplash.com/photo-1511379938547-c1f69419868d?w=400" },
-            { title: "VOID FREQ", price: "$60", genre: "Ambient", cover: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=400" },
-            { title: "CYBER GARDEN", price: "$35", genre: "Pop", cover: "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=400" },
-            { title: "LIQUID LOGIC", price: "$49", genre: "Phonk", cover: "https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=400" },
-            { title: "DEEP STRUCT", price: "$45", genre: "Dark", cover: "https://images.unsplash.com/photo-1508739773434-c26b3d09e071?w=400" },
-            { title: "GHOST SHELL", price: "$40", genre: "Indie", cover: "https://images.unsplash.com/photo-1614332287897-cdc485fa562d?w=400" },
-            { title: "VORTEX SOUL", price: "$55", genre: "Cyber", cover: "https://images.unsplash.com/photo-1633167606207-d840b5070fc2?w=400" }
-        ];
-        let currentIdx = 0;
-        let audio = new Audio(demoTracks[currentIdx].src);
-        function renderDemos() {
-            document.getElementById('demo-list').innerHTML = demoTracks.map((t, i) => `
-                <div onclick="selectTrack(${i})" class="track-row p-6 flex justify-between items-center cursor-pointer ${i === currentIdx ? 'active' : ''}">
-                    <div><h4 class="text-[10px] font-bold tracking-widest ${i === currentIdx ? 'text-[--seafoam-ivory]' : 'text-gray-500'}">${t.title}</h4><p class="text-[8px] opacity-40 mt-1 uppercase">${t.genre}</p></div>
-                    <span class="font-mono text-[9px] ${i === currentIdx ? 'text-[--seafoam-ivory]' : 'text-gray-800'}">${t.price}</span>
-                </div>
-            `).join('');
-        }
-        function renderCatalog() {
-            document.getElementById('beat-grid').innerHTML = catalogTracks.map(t => `
-                <div class="beat-card glass p-4 rounded-[40px] group border border-white/5 hover:border-[--seafoam-ivory] transition-all overflow-hidden">
-                    <div class="relative aspect-square rounded-[30px] overflow-hidden mb-6"><img src="${t.cover}" class="moving-img grayscale group-hover:grayscale-0 transition-all duration-1000"></div>
-                    <h5 class="font-title text-[8px] tracking-widest mb-2">${t.title}</h5>
-                    <div class="flex justify-between items-center"><span class="text-[--seafoam-ivory] font-mono text-[10px]">${t.price}</span><span class="text-[7px] text-gray-600 uppercase">${t.genre}</span></div>
-                </div>
-            `).join('');
-        }
-        function selectTrack(i) {
-            currentIdx = i; audio.src = demoTracks[i].src;
-            document.getElementById('curr-title').innerText = demoTracks[i].title;
-            document.getElementById('curr-price').innerText = demoTracks[i].price;
-            renderDemos(); audio.play();
-            document.getElementById('play-icon').setAttribute('data-lucide', 'pause');
-            lucide.createIcons();
-        }
-        function togglePlay() {
-            if(audio.paused) { audio.play(); document.getElementById('play-icon').setAttribute('data-lucide', 'pause'); }
-            else { audio.pause(); document.getElementById('play-icon').setAttribute('data-lucide', 'play'); }
-            lucide.createIcons();
-        }
-        function nextTrack() { selectTrack((currentIdx + 1) % demoTracks.length); }
-        function prevTrack() { selectTrack((currentIdx - 1 + demoTracks.length) % demoTracks.length); }
-        audio.addEventListener('timeupdate', () => {
-            document.getElementById('main-progress').style.width = (audio.currentTime / audio.duration) * 100 + '%';
+        /* Desplazamiento Vertical Premium */
+        const swiper = new Swiper(".mySwiper", {
+            direction: "vertical",
+            loop: false, /* Desactivado loop para que la pantalla 12 de contacto sea el destino final claro */
+            speed: 1500,
+            effect: "slide",
+            navigation: { nextEl: ".swiper-button-next", prevEl: ".swiper-button-prev" },
+            keyboard: { enabled: true },
+            mousewheel: { invert: false },
         });
-        renderDemos(); renderCatalog();
+        /* Lógica del Oráculo IA */
+        const botonIA = document.getElementById('botonIA');
+        const ventanaIA = document.getElementById('ventanaIA');
+        const cerrarIA = document.getElementById('cerrarIA');
+        const btnEnviar = document.getElementById('btnEnviar');
+        const inputUsuario = document.getElementById('inputUsuario');
+        const contenedorMensajes = document.getElementById('contenedorMensajes');
+        botonIA.addEventListener('click', () => { ventanaIA.style.display = (ventanaIA.style.display === 'flex') ? 'none' : 'flex'; });
+        cerrarIA.addEventListener('click', () => { ventanaIA.style.display = 'none'; });
+        function agregarMensaje(texto, remitente) {
+            const div = document.createElement('div');
+            div.classList.add('mensaje', remitente === 'ia' ? 'msg-ia' : 'msg-usuario');
+            div.innerText = texto;
+            contenedorMensajes.appendChild(div);
+            contenedorMensajes.scrollTop = contenedorMensajes.scrollHeight;
+        }
+        function procesarRespuestaIA(mensajeUsuario) {
+            const texto = mensajeUsuario.toLowerCase();
+            setTimeout(() => {
+                if(texto.includes('r&ndie') || texto.includes('genero') || texto.includes('musica')) {
+                    agregarMensaje("El R&ndie es el nacimiento de una era: la crudeza del Drill rindiéndose ante el alma del Indie y el R&B.", "ia");
+                } else if (texto.includes('soul') || texto.includes('drill')) {
+                    agregarMensaje("Esa combinación rompe moldes. Las pinceladas de Soul elevan la pesadez rítmica del Drill a una obra de alta costura.", "ia");
+                } else {
+                    agregarMensaje("Tus palabras vibran en la sintonía del R&ndie. Sigue deslizando para absorber la profundidad completa del artista.", "ia");
+                }
+            }, 1000);
+        }
+        function gestionarEnvio() {
+            const mensaje = inputUsuario.value.trim();
+            if(mensaje !== "") {
+                agregarMensaje(mensaje, 'usuario');
+                inputUsuario.value = "";
+                procesarRespuestaIA(mensaje);
+            }
+        }
+        btnEnviar.addEventListener('click', gestionarEnvio);
+        inputUsuario.addEventListener('keypress', (e) => { if(e.key === 'Enter') gestionarEnvio(); });
     </script>
 </body>
 </html>

@@ -1,470 +1,269 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>R&ndie - The New Era of Sound</title>
-    
-    <!-- Librerías de Prestigio: Fuentes de Moda y Swiper Vertical -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Montserrat:wght@200;400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
-    <!-- ==========================================
-         ESTILOS DE ALTA COSTURA (CSS)
-         ========================================== -->
-    <style>
-        /* Reset y Atmósfera Profunda */
-        html, body {
-            position: relative;
-            height: 100%;
-            margin: 0;
-            padding: 0;
-            font-family: 'Montserrat', sans-serif;
-            background-color: #020204;
-            color: #f5f5f0; /* Verde Marfil Suave */
-            overflow: hidden;
-        }
-
-        /* Tipografías Artísticas */
-        h1, h2, .brand-title {
-            font-family: 'Cinzel', serif;
-            letter-spacing: 6px;
-        }
-        .poesia-text {
-            font-family: 'Playfair Display', serif;
-            font-style: italic;
-        }
-
-        /* Carrusel Vertical a Pantalla Completa */
-        .swiper {
-            width: 100vw;
-            height: 100vh;
-        }
-
-        .swiper-slide {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: flex-end; /* Empuja el texto abajo para lucir la foto */
-            position: relative;
-            background-color: #020204;
-            background-repeat: no-repeat;
-            background-position: center center;
-            background-size: contain; /* Abre la pantalla de arriba a abajo con fotos enteras */
-            height: 100vh;
-            width: 100vw;
-        }
-
-        /* Degradado de pasarela para proteger la lectura */
-        .swiper-slide::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(0deg, rgba(2,2,4,0.95) 0%, rgba(2,2,4,0.2) 50%, rgba(2,2,4,0.6) 100%);
-            z-index: 1;
-        }
-
-        /* Contenedor de Texto Flotante en Zona Baja */
-        .manifiesto-artistico {
-            position: relative;
-            z-index: 2;
-            text-align: center;
-            max-width: 900px;
-            width: 85%;
-            margin-bottom: 80px; /* Mega espacio inferior sobrio */
-            padding: 30px;
-            background: rgba(255, 255, 255, 0.01);
-            backdrop-filter: blur(5px);
-            -webkit-backdrop-filter: blur(5px);
-            border-bottom: 1px solid rgba(168, 85, 247, 0.2); /* Línea liliácea sutil */
-            animation: eleganceFloat 5s ease-in-out infinite;
-        }
-
-        @keyframes eleganceFloat {
-            0% { transform: translateY(0px); opacity: 0.95; }
-            50% { transform: translateY(-6px); opacity: 1; }
-            100% { transform: translateY(0px); opacity: 0.95; }
-        }
-
-        /* Títulos y Concepto R&ndie */
-        .manifiesto-artistico h1 {
-            font-size: 2.5rem;
-            margin-bottom: 15px;
-            background: linear-gradient(45deg, #f5f5f0, #c084fc, #2dd4bf); /* Marfil, Liliáceo y Turquesa */
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            text-shadow: 0 0 30px rgba(192, 132, 252, 0.1);
-        }
-
-        .manifiesto-artistico p {
-            font-size: 1.3rem;
-            color: #d1d5db;
-            font-weight: 300;
-            line-height: 1.8;
-        }
-
-        /* Botón de Interacción Minimalista */
-        .boton-alta-gama {
-            display: inline-block;
-            margin-top: 15px;
-            padding: 12px 35px;
-            background: transparent;
-            color: #f5f5f0;
-            border: 1px solid #2dd4bf; /* Borde Turquesa Neón */
-            text-decoration: none;
-            font-size: 0.8rem;
-            text-transform: uppercase;
-            letter-spacing: 4px;
-            border-radius: 0px; /* Esquinas rectas para mayor elegancia */
-            transition: all 0.4s ease;
-        }
-
-        .boton-alta-gama:hover {
-            background: #c084fc;
-            border-color: #c084fc;
-            color: #020204;
-            box-shadow: 0 0 25px rgba(192, 132, 252, 0.6);
-        }
-
-        /* Estructura Especial para la Diapositiva Final (Contacto y Redes) */
-        .slide-final {
-            justify-content: center !important;
-            padding: 40px 20px;
-            box-sizing: border-box;
-            overflow-y: auto;
-        }
-
-        .grid-final {
-            position: relative;
-            z-index: 2;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 40px;
-            width: 100%;
-            max-width: 600px;
-        }
-
-        /* Formulario Minimalista */
-        .formulario-lujo {
-            width: 100%;
-            background: rgba(255, 255, 255, 0.02);
-            border: 1px solid rgba(45, 212, 191, 0.2); /* Borde turquesa sutil */
-            padding: 35px;
-            box-sizing: border-box;
-        }
-
-        .formulario-lujo input, .formulario-lujo textarea {
-            width: 100%;
-            background: transparent;
-            border: none;
-            border-bottom: 1px solid rgba(245, 245, 240, 0.3);
-            margin-bottom: 25px;
-            padding: 10px 0;
-            color: #f5f5f0;
-            font-family: 'Montserrat', sans-serif;
-            outline: none;
-            transition: border-color 0.3s;
-        }
-
-        .formulario-lujo input:focus, .formulario-lujo textarea:focus {
-            border-bottom-color: #c084fc; /* Cambio a Liliáceo al escribir */
-        }
-
-        /* Redes Sociales Glamourosas */
-        .redes-container {
-            display: flex;
-            gap: 30px;
-        }
-
-        .redes-container a {
-            color: #f5f5f0;
-            font-size: 1.8rem;
-            transition: color 0.3s, transform 0.3s;
-        }
-
-        .redes-container a:hover {
-            color: #2dd4bf;
-            transform: translateY(-5px);
-        }
-
-        /* Indicadores de dirección vertical refinados */
-        .swiper-button-next, .swiper-button-prev {
-            color: #f5f5f0 !important;
-            opacity: 0.2;
-            left: 50% !important;
-            transform: translateX(-50%);
-        }
-        .swiper-button-prev { top: 30px !important; transform: translateX(-50%) rotate(90deg); }
-        .swiper-button-next { top: auto !important; bottom: 20px !important; transform: translateX(-50%) rotate(90deg); }
-
-        /* ==========================================
-           WIDGET INTELIGENTE DE IA
-           ========================================== */
-        .ia-widget-boton {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            width: 50px;
-            height: 50px;
-            background: transparent;
-            border: 1px solid #c084fc;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 18px;
-            color: #c084fc;
-            cursor: pointer;
-            z-index: 9999;
-            transition: all 0.3s ease;
-        }
-        .ia-widget-boton:hover {
-            background: #c084fc;
-            color: #020204;
-            box-shadow: 0 0 20px rgba(192, 132, 252, 0.4);
-        }
-        .ia-chat-ventana {
-            position: fixed;
-            bottom: 95px;
-            right: 30px;
-            width: 330px;
-            height: 430px;
-            background: rgba(2, 2, 4, 0.98);
-            border: 1px solid rgba(45, 212, 191, 0.3);
-            display: none;
-            flex-direction: column;
-            z-index: 9998;
-        }
-        .ia-chat-header {
-            padding: 15px;
-            border-bottom: 1px solid rgba(255,255,255,0.05);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        .ia-chat-mensajes { flex: 1; padding: 15px; overflow-y: auto; display: flex; flex-direction: column; gap: 12px; }
-        .mensaje { padding: 10px 14px; font-size: 13px; max-width: 80%; line-height: 1.5; }
-        .msg-ia { background: rgba(255,255,255,0.03); color: #f5f5f0; align-self: flex-start; border-left: 2px solid #c084fc; }
-        .msg-usuario { background: rgba(45, 212, 191, 0.1); color: #2dd4bf; align-self: flex-end; border-right: 2px solid #2dd4bf; }
-        .ia-chat-input-area { padding: 12px; border-top: 1px solid rgba(255,255,255,0.05); display: flex; gap: 8px; }
-        .ia-chat-input-area input { flex: 1; background: transparent; border: 1px solid rgba(255,255,255,0.1); padding: 8px 12px; color: white; font-size: 12px; outline: none; }
-        .ia-chat-input-area button { background: transparent; border: 1px solid #2dd4bf; color: #2dd4bf; padding: 0 15px; cursor: pointer; }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>R&ndie - The New Era of Sound</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Playfair+Display:wght@400;700&family=Montserrat:wght@200;400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<style>
+html,body{
+margin:0;
+padding:0;
+width:100%;
+height:100%;
+overflow:hidden;
+background:#020204;
+font-family:'Montserrat',sans-serif;
+color:#fff;
+}
+.swiper{
+width:100%;
+height:100vh;
+}
+.swiper-slide{
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+text-align:center;
+padding:40px;
+background:
+radial-gradient(circle at top,rgba(255,255,255,.08),transparent 40%),
+linear-gradient(180deg,#050507,#020204);
+}
+.brand-title{
+font-family:'Cinzel',serif;
+font-size:clamp(3rem,8vw,7rem);
+letter-spacing:10px;
+margin-bottom:20px;
+}
+.subtitle{
+max-width:700px;
+line-height:1.8;
+font-size:1.1rem;
+opacity:.85;
+}
+.gold{color:#d4af37;}
+.poesia{
+font-family:'Playfair Display',serif;
+font-size:clamp(1.4rem,3vw,2rem);
+font-style:italic;
+max-width:800px;
+line-height:1.8;
+}
+.swiper-button-next,
+.swiper-button-prev{
+color:#d4af37;
+}
+#botonIA{
+position:fixed;
+bottom:25px;
+right:25px;
+width:72px;
+height:72px;
+border-radius:50%;
+border:none;
+background:linear-gradient(135deg,#d4af37,#8f6b00);
+color:white;
+font-size:28px;
+cursor:pointer;
+z-index:999;
+box-shadow:0 10px 35px rgba(212,175,55,.35);
+transition:transform .3s ease;
+}
+#botonIA:hover{transform:scale(1.08);}
+#ventanaIA{
+position:fixed;
+bottom:110px;
+right:25px;
+width:360px;
+max-width:calc(100vw - 20px);
+height:520px;
+background:rgba(10,10,14,.97);
+border-radius:24px;
+border:1px solid rgba(212,175,55,.2);
+backdrop-filter:blur(18px);
+display:flex;
+flex-direction:column;
+overflow:hidden;
+z-index:999;
+opacity:0;
+pointer-events:none;
+transform:translateY(20px);
+transition:all .35s ease;
+}
+#ventanaIA.activo{
+opacity:1;
+pointer-events:auto;
+transform:translateY(0);
+}
+.ia-header{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:18px;
+border-bottom:1px solid rgba(255,255,255,.08);
+}
+.ia-header h3{
+margin:0;
+font-family:'Cinzel',serif;
+color:#d4af37;
+}
+#cerrarIA{
+background:none;
+border:none;
+color:white;
+font-size:22px;
+cursor:pointer;
+}
+#contenedorMensajes{
+flex:1;
+overflow-y:auto;
+padding:20px;
+display:flex;
+flex-direction:column;
+gap:14px;
+}
+.mensaje{
+padding:14px 16px;
+border-radius:18px;
+max-width:85%;
+line-height:1.5;
+animation:fade .25s ease;
+}
+.msg-ia{
+align-self:flex-start;
+background:rgba(212,175,55,.12);
+border:1px solid rgba(212,175,55,.15);
+}
+.msg-user{
+align-self:flex-end;
+background:rgba(255,255,255,.08);
+}
+.ia-input{
+display:flex;
+gap:10px;
+padding:15px;
+border-top:1px solid rgba(255,255,255,.08);
+}
+#inputUsuario{
+flex:1;
+background:rgba(255,255,255,.05);
+border:1px solid rgba(255,255,255,.08);
+border-radius:14px;
+padding:14px;
+color:white;
+outline:none;
+}
+#btnEnviar{
+background:linear-gradient(135deg,#d4af37,#8f6b00);
+border:none;
+border-radius:14px;
+padding:0 20px;
+color:white;
+cursor:pointer;
+}
+@keyframes fade{
+from{opacity:0;transform:translateY(8px);}
+to{opacity:1;transform:translateY(0);}
+}
+</style>
 </head>
 <body>
-
-    <!-- CARRUSEL VERTICAL DE ALTA DEFINICIÓN (12 IMÁGENES) -->
-    <div class="swiper mySwiper">
-        <div class="swiper-wrapper">
-            
-            <!-- DIAPOSITIVA 1: EL MANIFIESTO -->
-            <div class="swiper-slide" style="background-image: url('https://images.unsplash.com/photo-1514525253161-7a46d19cd819?q=80&w=1920');">
-                <div class="manifiesto-artistico">
-                    <h1>Nace el R&ndie</h1>
-                    <p class="poesia-text">"La colisión perfecta entre la crudeza pura del Drill y la poesía etérea del Indie Pop."</p>
-                    <a href="#next" class="boton-alta-gama" onclick="swiper.slideNext(); return false;">Sumergirse</a>
-                </div>
-            </div>
-
-            <!-- DIAPOSITIVA 2: LAS MELODÍAS -->
-            <div class="swiper-slide" style="background-image: url('https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?q=80&w=1920');">
-                <div class="manifiesto-artistico">
-                    <h1>Sinfonía R&ndie</h1>
-                    <p class="poesia-text">"Armonías de Soul arrastradas por ritmos urbanos que acarician el abismo."</p>
-                </div>
-            </div>
-
-            <!-- DIAPOSITIVA 3: PROFUNDIDAD SENSORIAL -->
-            <div class="swiper-slide" style="background-image: url('https://images.unsplash.com/photo-1470225620780-dba8ba36b745?q=80&w=1920');">
-                <div class="manifiesto-artistico">
-                    <h1>Elegancia Callejera</h1>
-                    <p class="poesia-text">"Pinceladas de seda negra sobre frecuencias subterráneas."</p>
-                </div>
-            </div>
-
-            <!-- DIAPOSITIVA 4: IDENTIDAD URBANA -->
-            <div class="swiper-slide" style="background-image: url('https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?q=80&w=1920');">
-                <div class="manifiesto-artistico">
-                    <h1>Esencia R&ndie</h1>
-                    <p class="poesia-text">"Cuando el latido del Drill se rinde ante la vulnerabilidad del R&B acústico."</p>
-                </div>
-            </div>
-
-            <!-- DIAPOSITIVA 5: PUREZA CRUDA -->
-            <div class="swiper-slide" style="background-image: url('https://images.unsplash.com/photo-1516280440614-37939bbacd6a?q=80&w=1920');">
-                <div class="manifiesto-artistico">
-                    <h1>Texturas Híbridas</h1>
-                    <p class="poesia-text">"Sonidos aterciopelados flotando sobre bajos que hacen temblar el cemento."</p>
-                </div>
-            </div>
-
-            <!-- DIAPOSITIVA 6: EL NUEVO CULTO -->
-            <div class="swiper-slide" style="background-image: url('https://images.unsplash.com/photo-1501386761578-eac5c94b800a?q=80&w=1920');">
-                <div class="manifiesto-artistico">
-                    <h1>Vanguardia Estética</h1>
-                    <p class="poesia-text">"La sofisticación no se grita, se susurra sobre una base de Soul contemporáneo."</p>
-                </div>
-            </div>
-
-            <!-- DIAPOSITIVA 7: DINÁMICA ATMOSFÉRICA -->
-            <div class="swiper-slide" style="background-image: url('https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?q=80&w=1920');">
-                <div class="manifiesto-artistico">
-                    <h1>Luz Liliácea</h1>
-                    <p class="poesia-text">"Destellos de neón que cortan la sobriedad de una noche eterna."</p>
-                </div>
-            </div>
-
-            <!-- DIAPOSITIVA 8: REVOLUCIÓN SONORA -->
-            <div class="swiper-slide" style="background-image: url('https://images.unsplash.com/photo-1487180142328-054b783fc471?q=80&w=1920');">
-                <div class="manifiesto-artistico">
-                    <h1>Manifiesto R&ndie</h1>
-                    <p class="poesia-text">"No seguimos tendencias. Rompemos las reglas del género para crear un refugio."</p>
-                </div>
-            </div>
-
-            <!-- DIAPOSITIVA 9: PASARELA DIGITAL -->
-            <div class="swiper-slide" style="background-image: url('https://images.unsplash.com/photo-1465847899084-d164df4dedc6?q=80&w=1920');">
-                <div class="manifiesto-artistico">
-                    <h1>Diseño y Gravedad</h1>
-                    <p class="poesia-text">"El mega espacio que aloja los sentimientos más profundos del artista."</p>
-                </div>
-            </div>
-
-            <!-- DIAPOSITIVA 10: EL ECO DEL SOUL -->
-            <div class="swiper-slide" style="background-image: url('https://images.unsplash.com/photo-1508700115892-45ecd05ae2ad?q=80&w=1920');">
-                <div class="manifiesto-artistico">
-                    <h1>Frecuencia Turquesa</h1>
-                    <p class="poesia-text">"Donde las voces melancólicas encuentran su ritmo en el asfalto."</p>
-                </div>
-            </div>
-
-            <!-- DIAPOSITIVA 11: RAÍCES SUTILES -->
-            <div class="swiper-slide" style="background-image: url('https://images.unsplash.com/photo-1510915228340-29c85a43dcfe?q=80&w=1920');">
-                <div class="manifiesto-artistico">
-                    <h1>Identidad Visual</h1>
-                    <p class="poesia-text">"Siluetas perfectas que emergen del vacío marfil."</p>
-                </div>
-            </div>
-
-            <!-- DIAPOSITIVA 12: EXPERIENCIA FINAL (CONTACTO Y REDES) -->
-            <div class="swiper-slide slide-final" style="background-image: url('https://images.unsplash.com/photo-1453733190148-c44698c26588?q=80&w=1920');">
-                <div class="grid-final">
-                    <div style="text-align: center;">
-                        <h2 style="font-size: 1.8rem; text-transform: uppercase; margin-bottom: 10px;">Forma parte del movimiento</h2>
-                        <p class="poesia-text" style="color: #cbd5e1; font-size: 1.1rem; margin: 0;">Contacto exclusivo & Booking</p>
-                    </div>
-
-                    <!-- Formulario de Alto Standing -->
-                    <form class="formulario-lujo" onsubmit="event.preventDefault(); alert('Mensaje sintonizado con el R&ndie.');">
-                        <input type="text" placeholder="NOMBRE / FIRMA" required>
-                        <input type="email" placeholder="CORREO ELECTRÓNICO" required>
-                        <textarea placeholder="MENSAJE / PROPUESTA ARTÍSTICA" rows="3" required></textarea>
-                        <div style="text-align: right;">
-                            <button type="submit" class="boton-alta-gama" style="margin: 0; padding: 8px 25px;">Enviar</button>
-                        </div>
-                    </form>
-
-                    <!-- Redes Sociales de Lujo -->
-                    <div class="redes-container">
-                        <a href="https://instagram.com" target="_blank"><i class="fa-brands fa-instagram"></i></a>
-                        <a href="https://spotify.com" target="_blank"><i class="fa-brands fa-spotify"></i></a>
-                        <a href="https://youtube.com" target="_blank"><i class="fa-brands fa-youtube"></i></a>
-                        <a href="https://soundcloud.com" target="_blank"><i class="fa-brands fa-soundcloud"></i></a>
-                    </div>
-                </div>
-            </div>
-
-        </div>
-        
-        <!-- Flechas de navegación verticales -->
-        <div class="swiper-button-next"></div>
-        <div class="swiper-button-prev"></div>
-    </div>
-
-    <!-- ASISTENTE DE IA DE ALTA GAMA -->
-    <div class="ia-widget-boton" id="botonIA">
-        <i class="fa-solid fa-signature"></i>
-    </div>
-
-    <div class="ia-chat-ventana" id="ventanaIA">
-        <div class="ia-chat-header">
-            <span style="font-family:'Cinzel'; font-size: 11px; letter-spacing: 2px;">R&ndie Oracle</span>
-            <div id="cerrarIA" style="cursor:pointer; opacity:0.5;"><i class="fa-solid fa-xmark"></i></div>
-        </div>
-        <div class="ia-chat-mensajes" id="contenedorMensajes">
-            <div class="mensaje msg-ia">
-                Has entrado a la dimensión del R&ndie. Dime, ¿qué vibración buscas experimentar hoy en esta fusión de géneros?
-            </div>
-        </div>
-        <div class="ia-chat-input-area">
-            <input type="text" id="inputUsuario" placeholder="Escribe tus sentimientos..." autocomplete="off">
-            <button id="btnEnviar">Sintonizar</button>
-        </div>
-    </div>
-
-    <!-- MOTORES JAVASCRIPT RECONFIGURADOS -->
-    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-    <script>
-        /* Desplazamiento Vertical Premium */
-        const swiper = new Swiper(".mySwiper", {
-            direction: "vertical",
-            loop: false, /* Desactivado loop para que la pantalla 12 de contacto sea el destino final claro */
-            speed: 1500,
-            effect: "slide",
-            navigation: { nextEl: ".swiper-button-next", prevEl: ".swiper-button-prev" },
-            keyboard: { enabled: true },
-            mousewheel: { invert: false },
-        });
-
-        /* Lógica del Oráculo IA */
-        const botonIA = document.getElementById('botonIA');
-        const ventanaIA = document.getElementById('ventanaIA');
-        const cerrarIA = document.getElementById('cerrarIA');
-        const btnEnviar = document.getElementById('btnEnviar');
-        const inputUsuario = document.getElementById('inputUsuario');
-        const contenedorMensajes = document.getElementById('contenedorMensajes');
-
-        botonIA.addEventListener('click', () => { ventanaIA.style.display = (ventanaIA.style.display === 'flex') ? 'none' : 'flex'; });
-        cerrarIA.addEventListener('click', () => { ventanaIA.style.display = 'none'; });
-
-        function agregarMensaje(texto, remitente) {
-            const div = document.createElement('div');
-            div.classList.add('mensaje', remitente === 'ia' ? 'msg-ia' : 'msg-usuario');
-            div.innerText = texto;
-            contenedorMensajes.appendChild(div);
-            contenedorMensajes.scrollTop = contenedorMensajes.scrollHeight;
-        }
-
-        function procesarRespuestaIA(mensajeUsuario) {
-            const texto = mensajeUsuario.toLowerCase();
-            setTimeout(() => {
-                if(texto.includes('r&ndie') || texto.includes('genero') || texto.includes('musica')) {
-                    agregarMensaje("El R&ndie es el nacimiento de una era: la crudeza del Drill rindiéndose ante el alma del Indie y el R&B.", "ia");
-                } else if (texto.includes('soul') || texto.includes('drill')) {
-                    agregarMensaje("Esa combinación rompe moldes. Las pinceladas de Soul elevan la pesadez rítmica del Drill a una obra de alta costura.", "ia");
-                } else {
-                    agregarMensaje("Tus palabras vibran en la sintonía del R&ndie. Sigue deslizando para absorber la profundidad completa del artista.", "ia");
-                }
-            }, 1000);
-        }
-
-        function gestionarEnvio() {
-            const mensaje = inputUsuario.value.trim();
-            if(mensaje !== "") {
-                agregarMensaje(mensaje, 'usuario');
-                inputUsuario.value = "";
-                procesarRespuestaIA(mensaje);
-            }
-        }
-        btnEnviar.addEventListener('click', gestionarEnvio);
-        inputUsuario.addEventListener('keypress', (e) => { if(e.key === 'Enter') gestionarEnvio(); });
-    </script>
+<div class="swiper mySwiper">
+<div class="swiper-wrapper">
+<div class="swiper-slide">
+<h1 class="brand-title">R&NDIE</h1>
+<p class="subtitle">
+La nueva era sonora donde el <span class="gold">Drill</span>, el <span class="gold">Soul</span> y el Indie se transforman en una experiencia cinematográfica.
+</p>
+</div>
+<div class="swiper-slide">
+<p class="poesia">
+“No es solo música. Es estética, herida, elegancia y oscuridad emocional.”
+</p>
+</div>
+<div class="swiper-slide">
+<h2 class="brand-title" style="font-size:2.5rem;">THE NEW ERA OF SOUND</h2>
+<p class="subtitle">
+Una identidad artística nacida entre texturas emocionales y crudeza urbana.
+</p>
+</div>
+</div>
+<div class="swiper-button-next"></div>
+<div class="swiper-button-prev"></div>
+</div>
+<button id="botonIA"><i class="fa-solid fa-brain"></i></button>
+<div id="ventanaIA">
+<div class="ia-header">
+<h3>Oráculo IA</h3>
+<button id="cerrarIA">×</button>
+</div>
+<div id="contenedorMensajes">
+<div class="mensaje msg-ia">Bienvenido al universo R&ndie. Pregunta lo que quieras.</div>
+</div>
+<div class="ia-input">
+<input type="text" id="inputUsuario" placeholder="Escribe algo...">
+<button id="btnEnviar"><i class="fa-solid fa-paper-plane"></i></button>
+</div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<script>
+window.addEventListener('DOMContentLoaded',()=>{
+if(typeof Swiper!=='undefined'){
+new Swiper('.mySwiper',{
+direction:'vertical',
+speed:1400,
+mousewheel:true,
+keyboard:{enabled:true},
+navigation:{nextEl:'.swiper-button-next',prevEl:'.swiper-button-prev'}
+});
+}
+const botonIA=document.getElementById('botonIA');
+const ventanaIA=document.getElementById('ventanaIA');
+const cerrarIA=document.getElementById('cerrarIA');
+const btnEnviar=document.getElementById('btnEnviar');
+const inputUsuario=document.getElementById('inputUsuario');
+const contenedor=document.getElementById('contenedorMensajes');
+botonIA.addEventListener('click',()=>ventanaIA.classList.toggle('activo'));
+cerrarIA.addEventListener('click',()=>ventanaIA.classList.remove('activo'));
+function addMsg(txt,type){
+const div=document.createElement('div');
+div.className='mensaje '+(type==='ia'?'msg-ia':'msg-user');
+div.innerText=txt;
+contenedor.appendChild(div);
+contenedor.scrollTop=contenedor.scrollHeight;
+}
+function responder(txt){
+const t=txt.toLowerCase();
+setTimeout(()=>{
+if(t.includes('r&ndie')||t.includes('genero')||t.includes('género')){
+addMsg('R&ndie fusiona Drill, Soul, Indie y atmósferas cinematográficas.','ia');
+}else if(t.includes('drill')){
+addMsg('El Drill aporta energía oscura y tensión urbana.','ia');
+}else if(t.includes('soul')){
+addMsg('El Soul añade profundidad emocional y textura orgánica.','ia');
+}else{
+addMsg('Tu mensaje conecta con la esencia R&ndie.','ia');
+}
+},700);
+}
+function enviar(){
+const msg=inputUsuario.value.trim();
+if(!msg)return;
+addMsg(msg,'user');
+inputUsuario.value='';
+responder(msg);
+}
+btnEnviar.addEventListener('click',enviar);
+inputUsuario.addEventListener('keydown',e=>{
+if(e.key==='Enter')enviar();
+});
+});
+</script>
 </body>
 </html>

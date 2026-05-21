@@ -1,39 +1,503 @@
+# index.html
+
+```html
 <!DOCTYPE html>
 <html lang="es">
 <head>
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Dimensión Sonora</title>
-
-<link rel="stylesheet"
-href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
-
-<link rel="stylesheet"
-href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
-
-<link href="https://fonts.googleapis.com/css2?family=Syncopate:wght@400;700&family=Outfit:wght@300;400;500;700&display=swap"
-rel="stylesheet">
+<title>Dimensión Sonora · Fusion Experience</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;700&family=Parisienne&family=Manrope:wght@300;400;600&display=swap" rel="stylesheet">
 
 <style>
-
 :root{
-
 --black:#020202;
-
---ivory:#f8f6ef;
-
---turquoise:#55ffe0;
-
---ocean:#6fffe9;
-
---lilac:#caa8ff;
-
---deep:#0b1020;
-
+--ivory:#f7f4ef;
+--lilac:#d6b7ff;
+--lilac-neon:#bb7dff;
+--blue:#89d7ff;
+--turquoise:#7efff5;
 }
 
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+cursor:none;
+}
+
+html,body{
+width:100%;
+height:100%;
+overflow-x:hidden;
+background:var(--black);
+font-family:'Manrope',sans-serif;
+color:white;
+scroll-behavior:smooth;
+}
+
+::-webkit-scrollbar{
+display:none;
+}
+
+.cursor-dot{
+position:fixed;
+width:10px;
+height:10px;
+border-radius:50%;
+background:var(--lilac);
+box-shadow:0 0 20px var(--lilac);
+z-index:999999;
+pointer-events:none;
+}
+
+.cursor-ring{
+position:fixed;
+width:55px;
+height:55px;
+border-radius:50%;
+border:1px solid rgba(137,215,255,.75);
+box-shadow:0 0 30px rgba(137,215,255,.45);
+z-index:999998;
+pointer-events:none;
+}
+
+.trail{
+position:fixed;
+width:24px;
+height:24px;
+border-radius:50%;
+background:radial-gradient(circle,rgba(214,183,255,.6),rgba(137,215,255,.15),transparent 70%);
+filter:blur(10px);
+pointer-events:none;
+z-index:999997;
+animation:trailFade .9s linear forwards;
+}
+
+@keyframes trailFade{
+to{
+opacity:0;
+transform:scale(2.8);
+}
+}
+
+.swiper{
+width:100vw;
+height:100vh;
+}
+
+.swiper-slide{
+position:relative;
+display:flex;
+align-items:flex-end;
+justify-content:center;
+padding-bottom:20px;
+overflow:hidden;
+}
+
+.bg{
+position:absolute;
+inset:0;
+background-size:cover;
+background-position:center center;
+transform:scale(1.04);
+animation:cinema 18s ease-in-out infinite alternate;
+}
+
+@keyframes cinema{
+from{transform:scale(1.04) translateY(0px);}
+to{transform:scale(1.10) translateY(-15px);}
+}
+
+.swiper-slide::before{
+content:'';
+position:absolute;
+inset:0;
+background:
+linear-gradient(180deg,rgba(0,0,0,.1),rgba(0,0,0,.35)),
+radial-gradient(circle at top left,rgba(214,183,255,.22),transparent 35%),
+radial-gradient(circle at bottom right,rgba(137,215,255,.14),transparent 40%);
+z-index:1;
+}
+
+.contenido{
+position:relative;
+z-index:2;
+width:88%;
+max-width:860px;
+padding:55px;
+margin-bottom:18px;
+border-radius:38px;
+background:linear-gradient(135deg,rgba(255,255,255,.05),rgba(255,255,255,.015));
+backdrop-filter:blur(12px);
+border:1px solid rgba(255,255,255,.06);
+box-shadow:0 10px 50px rgba(0,0,0,.22),0 0 120px rgba(187,125,255,.06);
+animation:float 8s ease-in-out infinite;
+}
+
+@keyframes float{
+0%{transform:translateY(0px);}
+50%{transform:translateY(-12px);}
+100%{transform:translateY(0px);}
+}
+
+h1{
+font-family:'Parisienne',cursive;
+font-size:5rem;
+line-height:1;
+font-weight:400;
+margin-bottom:25px;
+background:linear-gradient(90deg,var(--ivory),var(--blue),var(--lilac-neon));
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+}
+
+p{
+font-family:'Cormorant Garamond',serif;
+font-size:1.5rem;
+line-height:1.7;
+font-style:italic;
+max-width:620px;
+color:rgba(247,244,239,.82);
+margin-bottom:34px;
+}
+
+.btn{
+display:inline-flex;
+align-items:center;
+gap:12px;
+padding:16px 34px;
+border-radius:60px;
+background:linear-gradient(135deg,rgba(214,183,255,.95),rgba(137,215,255,.95));
+color:#061018;
+font-family:'Cormorant Garamond',serif;
+font-style:italic;
+font-weight:700;
+text-decoration:none;
+transition:.45s ease;
+}
+
+.btn:hover{
+transform:translateY(-6px);
+}
+
+.fusion-player{
+position:fixed;
+top:18px;
+left:50%;
+transform:translateX(-50%);
+width:92%;
+max-width:980px;
+padding:22px;
+border-radius:36px;
+background:linear-gradient(135deg,rgba(12,12,20,.82),rgba(8,8,15,.62));
+backdrop-filter:blur(20px);
+border:1px solid rgba(255,255,255,.06);
+z-index:99999;
+}
+
+.tracks{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+gap:16px;
+}
+
+.track{
+padding:18px;
+border-radius:24px;
+background:linear-gradient(135deg,rgba(255,255,255,.04),rgba(255,255,255,.015));
+border:1px solid rgba(255,255,255,.05);
+}
+
+.track-info h3{
+font-family:'Parisienne',cursive;
+font-size:2rem;
+background:linear-gradient(90deg,var(--lilac),var(--blue),var(--ivory));
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+}
+
+.track-info span{
+font-family:'Cormorant Garamond',serif;
+font-style:italic;
+color:rgba(255,255,255,.65);
+}
+
+.track audio{
+width:100%;
+margin-top:10px;
+filter:hue-rotate(240deg) saturate(1.2);
+}
+
+.video-fusion-wrapper{
+width:92%;
+max-width:1450px;
+margin:120px auto 80px auto;
+padding:38px;
+border-radius:40px;
+background:linear-gradient(135deg,rgba(12,12,20,.82),rgba(6,6,12,.62));
+backdrop-filter:blur(20px);
+border:1px solid rgba(255,255,255,.06);
+}
+
+.video-fusion-header h2{
+font-family:'Parisienne',cursive;
+font-size:4rem;
+background:linear-gradient(90deg,#f7f4ef,#89d7ff,#d6b7ff);
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+}
+
+.video-fusion-header p{
+font-family:'Cormorant Garamond',serif;
+font-style:italic;
+font-size:1.3rem;
+color:rgba(255,255,255,.7);
+margin-bottom:30px;
+}
+
+.video-player-shell{
+width:100%;
+height:68vh;
+overflow:hidden;
+border-radius:30px;
+background:#000;
+}
+
+.video-player-shell iframe{
+width:100%;
+height:100%;
+}
+
+.video-preview-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:18px;
+margin-top:26px;
+}
+
+.video-slot{
+overflow:hidden;
+border-radius:24px;
+background:linear-gradient(135deg,rgba(255,255,255,.04),rgba(255,255,255,.015));
+border:1px solid rgba(255,255,255,.06);
+transition:.4s ease;
+}
+
+.video-slot:hover{
+transform:translateY(-6px);
+}
+
+.video-slot img{
+width:100%;
+display:block;
+}
+
+.video-slot span{
+display:block;
+padding:14px;
+font-family:'Cormorant Garamond',serif;
+font-style:italic;
+}
+
+@media(max-width:768px){
+.contenido{padding:30px;}
+h1{font-size:3rem;}
+p{font-size:1.15rem;}
+.fusion-player{top:10px;padding:16px;}
+}
+</style>
+</head>
+<body>
+
+<div class="cursor-dot"></div>
+<div class="cursor-ring"></div>
+
+<div class="fusion-player">
+<div class="tracks">
+
+<div class="track">
+<div class="track-info">
+<h3>Ivory Dreams</h3>
+<span>R&B atmosférico</span>
+</div>
+<audio controls loop>
+<source src="https://cdn.pixabay.com/download/audio/2023/03/09/audio_33c8a9f2f8.mp3?filename=sad-soul-chilling-141071.mp3">
+</audio>
+</div>
+
+<div class="track">
+<div class="track-info">
+<h3>Neon Lilac</h3>
+<span>Indie pop emocional</span>
+</div>
+<audio controls loop>
+<source src="https://cdn.pixabay.com/download/audio/2022/10/30/audio_9464983d4e.mp3?filename=lofi-study-112191.mp3">
+</audio>
+</div>
+
+</div>
+</div>
+
+<div class="swiper mySwiper">
+<div class="swiper-wrapper">
+
+<div class="swiper-slide">
+<div class="bg" style="background-image:url('https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?q=80&w=1600');"></div>
+<div class="contenido">
+<h1>La esencia del sonido</h1>
+<p>Una experiencia cinematográfica donde música e imagen flotan en armonía.</p>
+<a href="#" class="btn"><i class="fa-solid fa-star"></i>Contemplar</a>
+</div>
+</div>
+
+<div class="swiper-slide">
+<div class="bg" style="background-image:url('https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=1600');"></div>
+</div>
+
+<div class="swiper-slide">
+<div class="bg" style="background-image:url('https://images.unsplash.com/photo-1507679799987-c73779587ccf?q=80&w=1600');"></div>
+<div class="contenido">
+<h1>Explora tu interior</h1>
+<p>Cada frecuencia despierta emociones profundas y memorias invisibles.</p>
+<a href="#" class="btn"><i class="fa-solid fa-wave-square"></i>Conectarse</a>
+</div>
+</div>
+
+</div>
+</div>
+
+<section class="video-fusion-wrapper">
+<div class="video-fusion-header">
+<h2>Visual Sound Dimension</h2>
+<p>Experiencia continua de videoclips inmersivos.</p>
+</div>
+
+<div class="video-player-shell">
+<iframe id="mainVideo" src="https://www.youtube.com/embed/jfKfPfyJRdk?autoplay=1&rel=0&modestbranding=1&playsinline=1" frameborder="0" allowfullscreen></iframe>
+</div>
+
+<div class="video-preview-grid">
+<div class="video-slot" data-video="jfKfPfyJRdk">
+<img src="https://img.youtube.com/vi/jfKfPfyJRdk/hqdefault.jpg">
+<span>Dream Lofi Session</span>
+</div>
+
+<div class="video-slot" data-video="5qap5aO4i9A">
+<img src="https://img.youtube.com/vi/5qap5aO4i9A/hqdefault.jpg">
+<span>Midnight Chill</span>
+</div>
+
+<div class="video-slot" data-video="DWcJFNfaw9c">
+<img src="https://img.youtube.com/vi/DWcJFNfaw9c/hqdefault.jpg">
+<span>Neo Soul Atmosphere</span>
+</div>
+
+<div class="video-slot" data-video="4xDzrJKXOOY">
+<img src="https://img.youtube.com/vi/4xDzrJKXOOY/hqdefault.jpg">
+<span>Deep Ambient Waves</span>
+</div>
+
+<div class="video-slot" data-video="kgx4WGK0oNU">
+<img src="https://img.youtube.com/vi/kgx4WGK0oNU/hqdefault.jpg">
+<span>Night Drive Fusion</span>
+</div>
+</div>
+</section>
+
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+<script>
+new Swiper('.mySwiper',{
+direction:'vertical',
+loop:false,
+speed:1500,
+slidesPerView:1,
+freeMode:true,
+mousewheel:{
+releaseOnEdges:true,
+sensitivity:.38,
+forceToAxis:true
+},
+keyboard:true
+});
+
+const dot=document.querySelector('.cursor-dot');
+const ring=document.querySelector('.cursor-ring');
+
+let mouseX=window.innerWidth/2;
+let mouseY=window.innerHeight/2;
+let ringX=mouseX;
+let ringY=mouseY;
+
+window.addEventListener('mousemove',(e)=>{
+mouseX=e.clientX;
+mouseY=e.clientY;
+
+dot.style.transform=`translate(${mouseX}px,${mouseY}px)`;
+
+const trail=document.createElement('div');
+trail.className='trail';
+trail.style.transform=`translate(${mouseX-12}px,${mouseY-12}px)`;
+document.body.appendChild(trail);
+
+setTimeout(()=>{
+trail.remove();
+},900);
+});
+
+function animateCursor(){
+ringX+=(mouseX-ringX)*0.08;
+ringY+=(mouseY-ringY)*0.08;
+ring.style.transform=`translate(${ringX-27}px,${ringY-27}px)`;
+requestAnimationFrame(animateCursor);
+}
+animateCursor();
+
+const videoSlots=document.querySelectorAll('.video-slot');
+const mainVideo=document.getElementById('mainVideo');
+
+videoSlots.forEach(slot=>{
+slot.addEventListener('click',()=>{
+const id=slot.dataset.video;
+mainVideo.src=`https://www.youtube.com/embed/${id}?autoplay=1&rel=0&modestbranding=1&playsinline=1`;
+});
+});
+</script>
+
+</body>
+</html>
+```
+
+## Producción
+
+1. Crear carpeta:
+
+```bash
+/production
+   index.html
+```
+
+2. Pegar el contenido completo.
+
+3. Subir a:
+
+* Netlify
+* Vercel
+* Hostinger
+* cPanel
+* GitHub Pages
+
+4. Recomendación:
+   Guardar imágenes localmente en:
+
+```bash
+/assets/img/
+```
+
+para evitar hotlinking externo en producción.
 /* RESET */
 
 *{

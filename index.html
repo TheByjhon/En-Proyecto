@@ -1,23 +1,38 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Dimensión Sonora</title>
 
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
-<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet"
+href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Inter:wght@300;400;600&display=swap"
+rel="stylesheet">
 
 <style>
-*{margin:0;padding:0;box-sizing:border-box;}
-body{
-height:100vh;
-overflow:hidden;
-font-family:'Inter',sans-serif;
-background:#000;
-color:#fff;
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
 }
+
+html,body{
+width:100%;
+height:100%;
+overflow:hidden;
+background:#000;
+font-family:'Inter',sans-serif;
+color:white;
+}
+
+/* SWIPER */
 
 .swiper{
 width:100vw;
@@ -27,26 +42,33 @@ height:100vh;
 .swiper-slide{
 position:relative;
 display:flex;
-align-items:flex-end;
 justify-content:center;
+align-items:flex-end;
 padding-bottom:10px;
-background-size:cover;
-background-position:center;
 overflow:hidden;
+background-size:cover;
+background-position:center center;
+background-repeat:no-repeat;
 }
+
+/* DEGRADADO SUAVE */
 
 .swiper-slide::before{
 content:'';
 position:absolute;
 inset:0;
+
 background:linear-gradient(
 0deg,
 rgba(0,0,0,.72) 0%,
 rgba(0,0,0,.08) 42%,
 rgba(0,0,0,.45) 100%
 );
+
 z-index:1;
 }
+
+/* EFECTO CINEMATOGRÁFICO */
 
 .swiper-slide::after{
 content:'';
@@ -55,198 +77,333 @@ inset:-5%;
 background-image:inherit;
 background-size:cover;
 background-position:center;
-animation:zoom 12s ease-in-out infinite alternate;
+animation:zoom 14s ease-in-out infinite alternate;
 z-index:0;
 }
 
 @keyframes zoom{
-from{transform:scale(1.05);}
-to{transform:scale(1.15) translateY(-10px);}
+from{
+transform:scale(1.03);
 }
+to{
+transform:scale(1.10) translateY(-10px);
+}
+}
+
+/* CRISTAL */
 
 .contenido{
 position:relative;
 z-index:2;
+
 width:88%;
 max-width:760px;
-text-align:left;
+
 padding:42px 46px;
-backdrop-filter:blur(7px);
-background:rgba(255,255,255,.008);
-border:1px solid rgba(255,255,255,.05);
-border-radius:30px;
-box-shadow:0 8px 35px rgba(0,0,0,.18);
-animation:float 5s ease-in-out infinite;
-align-self:flex-end;
+
 margin-bottom:12px;
+
+text-align:left;
+
+background:rgba(255,255,255,.008);
+
+backdrop-filter:blur(7px);
+-webkit-backdrop-filter:blur(7px);
+
+border:1px solid rgba(255,255,255,.05);
+
+border-radius:30px;
+
+box-shadow:0 8px 35px rgba(0,0,0,.18);
+
+animation:float 5s ease-in-out infinite;
 }
 
 @keyframes float{
-0%{transform:translateY(0px);}
-50%{transform:translateY(-8px);}
-100%{transform:translateY(0px);}
+
+0%{
+transform:translateY(0px);
 }
 
+50%{
+transform:translateY(-8px);
+}
+
+100%{
+transform:translateY(0px);
+}
+
+}
+
+/* TITULOS */
+
 h1{
-max-width:620px;
 font-family:'Cinzel',serif;
+
 font-size:2.5rem;
-margin-bottom:18px;
+
 line-height:1.2;
-background:linear-gradient(45deg,#fff,#d8b4fe,#baf825);
+
+max-width:620px;
+
+margin-bottom:18px;
+
+background:linear-gradient(
+45deg,
+#ffffff,
+#d8b4fe,
+#baf825
+);
+
 -webkit-background-clip:text;
 -webkit-text-fill-color:transparent;
 }
 
+/* TEXTO */
+
 p{
-max-width:560px;
-font-size:1.1rem;
+font-size:1.08rem;
+
 line-height:1.8;
-color:#ddd;
+
+color:#dddddd;
+
+max-width:560px;
+
 margin-bottom:32px;
 }
+
+/* BOTÓN */
 
 .btn{
 display:inline-flex;
 align-items:center;
 gap:10px;
+
 padding:14px 30px;
+
 border-radius:40px;
-background:linear-gradient(135deg,#fff,#d8b4fe);
-color:#111;
+
+background:linear-gradient(
+135deg,
+#ffffff,
+#d8b4fe
+);
+
+color:#111111;
+
 font-weight:700;
+
 text-decoration:none;
+
 transition:.35s ease;
 }
 
 .btn:hover{
+
 transform:translateY(-4px);
+
 box-shadow:0 0 25px rgba(192,132,252,.45);
 }
 
-.swiper-button-next,.swiper-button-prev{
-color:#fff !important;
-left:50% !important;
-opacity:.45;
-}
-
-.swiper-button-prev{
-top:30px !important;
-transform:translateX(-50%) rotate(90deg);
-}
-
-.swiper-button-next{
-bottom:20px !important;
-top:auto !important;
-transform:translateX(-50%) rotate(90deg);
-}
+/* REPRODUCTOR */
 
 .player{
 position:fixed;
+
 top:18px;
 left:50%;
+
 transform:translateX(-50%);
+
 z-index:99999;
+
 width:320px;
 }
 
+/* CHATBOT */
+
 .ia-btn{
 position:fixed;
+
 right:25px;
 bottom:90px;
+
 width:60px;
 height:60px;
+
 border-radius:50%;
-background:linear-gradient(135deg,#baf825,#a855f7);
+
+background:linear-gradient(
+135deg,
+#baf825,
+#a855f7
+);
+
 display:flex;
 align-items:center;
 justify-content:center;
+
 font-size:22px;
+
 cursor:pointer;
+
 z-index:9999;
+
 box-shadow:0 10px 30px rgba(168,85,247,.45);
 }
 
 .chat{
 position:fixed;
+
 right:25px;
 bottom:165px;
+
 width:360px;
 height:500px;
+
 background:rgba(5,5,10,.94);
+
 backdrop-filter:blur(18px);
-border:1px solid rgba(255,255,255,.05);
+
+border:1px solid rgba(255,255,255,.08);
+
 border-radius:24px;
+
 display:none;
 flex-direction:column;
+
 overflow:hidden;
+
 z-index:9998;
 }
 
 .chat-header{
 padding:16px;
+
 border-bottom:1px solid rgba(255,255,255,.08);
+
 display:flex;
 justify-content:space-between;
 }
 
 .chat-body{
 flex:1;
+
 overflow:auto;
+
 padding:16px;
+
 display:flex;
 flex-direction:column;
+
 gap:12px;
 }
 
 .msg{
 padding:12px 14px;
+
 border-radius:16px;
+
 max-width:80%;
+
 font-size:13px;
+
 line-height:1.5;
 }
 
-.ia{background:rgba(255,255,255,.06);}
-.user{background:#a855f7;align-self:flex-end;}
+.ia{
+background:rgba(255,255,255,.06);
+}
+
+.user{
+background:#a855f7;
+align-self:flex-end;
+}
 
 .chat-input{
 display:flex;
+
 gap:10px;
+
 padding:14px;
+
 border-top:1px solid rgba(255,255,255,.06);
 }
 
 .chat-input input{
 flex:1;
+
 padding:12px;
+
 border-radius:30px;
+
 border:none;
+
 background:rgba(255,255,255,.05);
+
 color:white;
 }
 
 .chat-input button{
 width:42px;
 height:42px;
+
 border-radius:50%;
+
 border:none;
+
 background:#a855f7;
+
 color:white;
 }
 
+/* FLECHAS */
+
+.swiper-button-next,
+.swiper-button-prev{
+
+color:white !important;
+
+left:50% !important;
+
+opacity:.45;
+}
+
+.swiper-button-prev{
+top:30px !important;
+
+transform:
+translateX(-50%)
+rotate(90deg);
+}
+
+.swiper-button-next{
+bottom:20px !important;
+top:auto !important;
+
+transform:
+translateX(-50%)
+rotate(90deg);
+}
+
+/* RESPONSIVE */
+
 @media(max-width:768px){
+
 .contenido{
 padding:28px;
 text-align:center;
 }
 
 h1{
+font-size:1.8rem;
 max-width:100%;
 }
 
 p{
 max-width:100%;
+font-size:.95rem;
 }
 
 .chat{
@@ -255,111 +412,117 @@ right:4%;
 height:70vh;
 }
 
-h1{
-font-size:1.8rem;
 }
 
-p{
-font-size:.95rem;
-}
-}
 </style>
 </head>
+
 <body>
 
+<!-- AUDIO -->
+
 <audio class="player" controls autoplay loop>
-<source src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_c8c8a73467.mp3?filename=ambient-piano-logo-165357.mp3" type="audio/mpeg">
+
+<source
+src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_c8c8a73467.mp3?filename=ambient-piano-logo-165357.mp3"
+type="audio/mpeg">
+
 </audio>
 
+<!-- SWIPER -->
+
 <div class="swiper mySwiper">
+
 <div class="swiper-wrapper">
 
-<div class="swiper-slide" style="background-image:url('sandbox:/mnt/data/b7ea45af-e9ce-4d59-9eac-3f2749a1ae9a.png');">
+<!-- PANTALLA 1 -->
+
+<div class="swiper-slide"
+style="
+background-image:url('/mnt/data/697f730f-0fcb-494f-ba35-a2c6abdd0a04.png');
+">
+
 <div class="contenido">
-<h1>Construye el ritmo sonoro de tu mundo</h1>
+
+<h1>La esencia visual del sonido</h1>
+
 <p>
-Una experiencia inmersiva donde la música transforma emociones en paisajes sensoriales.
-Déjate envolver lentamente por armonías diseñadas para conectar con tu esencia.
+Un espacio contemplativo donde la imagen y la música
+se funden lentamente en una sola atmósfera emocional.
 </p>
-<a href="#" class="btn"><i class="fa-solid fa-play"></i>Iniciar Viaje</a>
-</div>
+
+<a href="#" class="btn">
+
+<i class="fa-solid fa-star"></i>
+
+Contemplar
+
+</a>
+
 </div>
 
-<div class="swiper-slide" style="background-image:url('https://images.unsplash.com/photo-1507679799987-c73779587ccf?q=80&w=1400');">
+</div>
+
+<!-- PANTALLA LIMPIA -->
+
+<div class="swiper-slide"
+style="
+background-image:url('https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=1400');
+">
+</div>
+
+<!-- PANTALLA 3 -->
+
+<div class="swiper-slide"
+style="
+background-image:url('https://images.unsplash.com/photo-1507679799987-c73779587ccf?q=80&w=1400');
+">
+
 <div class="contenido">
+
 <h1>Explora tu dimensión interior</h1>
+
 <p>
-Cada frecuencia conecta con recuerdos, emociones y deseos ocultos.
-Las melodías abren espacios íntimos donde el silencio y la emoción se encuentran.
+Cada frecuencia conecta con recuerdos,
+emociones y deseos ocultos.
 </p>
-<a href="#" class="btn"><i class="fa-solid fa-wave-square"></i>Conectarse</a>
-</div>
+
+<a href="#" class="btn">
+
+<i class="fa-solid fa-wave-square"></i>
+
+Conectarse
+
+</a>
+
 </div>
 
-<div class="swiper-slide" style="background-image:url('https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?q=80&w=1400');">
+</div>
+
+<!-- PANTALLA 4 -->
+
+<div class="swiper-slide"
+style="
+background-image:url('https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?q=80&w=1400');
+">
+
 <div class="contenido">
+
 <h1>Desata tu mar de sensaciones</h1>
-<p>
-Permite que el sonido te guíe hacia un horizonte de libertad emocional.
-Cada nota expande tus sentidos hasta convertirlos en movimiento y energía.
-</p>
-<a href="#" class="btn"><i class="fa-solid fa-music"></i>Descubrir</a>
-</div>
-</div>
 
-<div class="swiper-slide" style="background-image:url('https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?q=80&w=1400');">
-<div class="contenido">
-<h1>Escucha la gravedad de cada nota</h1>
 <p>
-Frecuencias profundas atraviesan el cuerpo y despiertan nuevas realidades interiores.
-La vibración sonora transforma cada instante en una experiencia casi cinematográfica.
+Permite que el sonido te guíe
+hacia un horizonte emocional.
 </p>
-<a href="#" class="btn"><i class="fa-solid fa-headphones"></i>Sumergirse</a>
-</div>
-</div>
 
-<div class="swiper-slide" style="background-image:url('https://images.unsplash.com/photo-1501386761578-eac5c94b800a?q=80&w=1400');">
-<div class="contenido">
-<h1>Convierte emociones en movimiento</h1>
-<p>
-La energía sonora transforma silencios en pulsaciones llenas de vida y expansión.
-Un viaje visual y auditivo donde cada emoción encuentra su propio ritmo.
-</p>
-<a href="#" class="btn"><i class="fa-solid fa-bolt"></i>Expandir</a>
-</div>
-</div>
+<a href="#" class="btn">
 
-<div class="swiper-slide" style="background-image:url('https://images.unsplash.com/photo-1499364615650-ec38552f4f34?q=80&w=1400');">
-<div class="contenido">
-<h1>La esencia visual del sonido</h1>
-<p>
-Una dimensión inmersiva donde cada melodía construye paisajes visuales y emocionales.
-La música deja de escucharse para comenzar a sentirse en cada espacio del entorno.
-</p>
-<a href="#" class="btn"><i class="fa-solid fa-star"></i>Entrar</a>
-</div>
-</div>
+<i class="fa-solid fa-music"></i>
 
-<div class="swiper-slide" style="background-image:url('https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=1400');">
-<div class="contenido">
-<h1>La esencia visual del sonido</h1>
-<p>
-Un espacio contemplativo donde la imagen y la música se funden lentamente en una sola atmósfera emocional.
-</p>
-<a href="#" class="btn"><i class="fa-solid fa-star"></i>Contemplar</a>
-</div>
-</div>
+Descubrir
 
-<div class="swiper-slide" style="background-image:url('sandbox:/mnt/data/b7ea45af-e9ce-4d59-9eac-3f2749a1ae9a.png'); background-position:center center;">
-</div>
-<div class="contenido">
-<h1>Habita un universo de luz y sonido</h1>
-<p>
-Una dimensión inmersiva donde cada melodía construye paisajes visuales y emocionales.
-La música deja de escucharse para comenzar a sentirse en cada espacio del entorno.
-</p>
-<a href="#" class="btn"><i class="fa-solid fa-star"></i>Entrar</a>
-</div>
+</a>
+
 </div>
 
 </div>
@@ -368,84 +531,199 @@ La música deja de escucharse para comenzar a sentirse en cada espacio del entor
 
 <div class="swiper-button-next"></div>
 <div class="swiper-button-prev"></div>
+
 </div>
 
+<!-- CHATBOT -->
+
 <div class="ia-btn" id="openChat">
+
 <i class="fa-solid fa-wand-magic-sparkles"></i>
+
 </div>
 
 <div class="chat" id="chat">
+
 <div class="chat-header">
+
 <strong>Guía Sensorial IA</strong>
-<i class="fa-solid fa-xmark" id="closeChat" style="cursor:pointer"></i>
+
+<i class="fa-solid fa-xmark"
+id="closeChat"
+style="cursor:pointer"></i>
+
 </div>
 
 <div class="chat-body" id="chatBody">
+
 <div class="msg ia">
-He percibido tu llegada a esta dimensión sonora. ¿Qué emociones deseas despertar hoy?
+
+He percibido tu llegada
+a esta dimensión sonora.
+
 </div>
+
 </div>
 
 <div class="chat-input">
-<input id="input" placeholder="Escribe tus emociones...">
-<button id="send"><i class="fa-solid fa-paper-plane"></i></button>
+
+<input id="input"
+placeholder="Escribe tus emociones...">
+
+<button id="send">
+
+<i class="fa-solid fa-paper-plane"></i>
+
+</button>
+
 </div>
+
 </div>
+
+<!-- JS -->
 
 <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
 <script>
+
+/* SWIPER SUAVE */
+
 new Swiper('.mySwiper',{
+
 direction:'vertical',
-loop:true,
-speed:1600,
-mousewheel:true,
+
+loop:false,
+
+speed:1200,
+
+slidesPerView:1,
+
+spaceBetween:0,
+
+freeMode:true,
+
+freeModeMomentum:true,
+
+freeModeMomentumRatio:.35,
+
+freeModeMomentumVelocityRatio:.25,
+
+mousewheel:{
+releaseOnEdges:true,
+sensitivity:.45,
+forceToAxis:true
+},
+
 keyboard:true,
-navigation:{nextEl:'.swiper-button-next',prevEl:'.swiper-button-prev'}
-});
 
-const chat=document.getElementById('chat');
-const openChat=document.getElementById('openChat');
-const closeChat=document.getElementById('closeChat');
-const send=document.getElementById('send');
-const input=document.getElementById('input');
-const chatBody=document.getElementById('chatBody');
-
-openChat.onclick=()=>{
-chat.style.display=chat.style.display==='flex'?'none':'flex';
+navigation:{
+nextEl:'.swiper-button-next',
+prevEl:'.swiper-button-prev'
 }
 
-closeChat.onclick=()=> chat.style.display='none';
+});
+
+/* CHAT */
+
+const chat =
+document.getElementById('chat');
+
+const openChat =
+document.getElementById('openChat');
+
+const closeChat =
+document.getElementById('closeChat');
+
+const send =
+document.getElementById('send');
+
+const input =
+document.getElementById('input');
+
+const chatBody =
+document.getElementById('chatBody');
+
+openChat.onclick=()=>{
+
+chat.style.display =
+chat.style.display==='flex'
+?'none'
+:'flex';
+
+}
+
+closeChat.onclick=()=>{
+
+chat.style.display='none';
+
+}
 
 function addMessage(text,type){
-const div=document.createElement('div');
+
+const div =
+document.createElement('div');
+
 div.className=`msg ${type}`;
+
 div.innerText=text;
+
 chatBody.appendChild(div);
-chatBody.scrollTop=chatBody.scrollHeight;
+
+chatBody.scrollTop=
+chatBody.scrollHeight;
+
 }
 
 function answer(text){
+
 setTimeout(()=>{
-let r='Tus emociones están resonando con esta dimensión sonora.';
-if(text.includes('triste')) r='Las frecuencias suaves pueden ayudarte a reconstruirte lentamente.';
-if(text.includes('energ')) r='Tu energía está expandiéndose. Permite que el ritmo la transforme.';
-if(text.includes('libertad')) r='La libertad comienza cuando tus emociones encuentran un sonido propio.';
+
+let r='Tus emociones resuenan en esta dimensión sonora.';
+
+if(text.includes('triste')){
+r='Las frecuencias suaves pueden reconstruir lentamente tu interior.';
+}
+
+if(text.includes('energ')){
+r='Tu energía está expandiéndose con el ritmo.';
+}
+
+if(text.includes('libertad')){
+r='La libertad comienza cuando el sonido encuentra tu esencia.';
+}
+
 addMessage(r,'ia');
+
 },1000)
+
 }
 
 function sendMsg(){
-const text=input.value.trim();
+
+const text =
+input.value.trim();
+
 if(!text) return;
+
 addMessage(text,'user');
+
 input.value='';
+
 answer(text.toLowerCase());
+
 }
 
 send.onclick=sendMsg;
+
 input.addEventListener('keypress',e=>{
-if(e.key==='Enter') sendMsg();
+
+if(e.key==='Enter'){
+sendMsg();
+}
+
 });
+
 </script>
+
 </body>
 </html>
